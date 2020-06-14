@@ -1,0 +1,92 @@
+\subsection{Modulation}
+\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+
+
+
+\item See Fig. \ref{fig:ee18btech11012_fig1} for the constellation diagram.  The transmitted symbol set is given by 
+\begin{align}
+\vec{s}_m = \myvec{\cos \frac{2m\pi}{8}\\ \sin \frac{2m\pi}{8}}, \quad m \in \cbrak{0, 1, \dots, 3}.
+%\textbf{y = s + n}
+\end{align}
+%
+The numerical values for $\vec{s}_m$ are listed in Table \ref{table: }
+\begin{figure}[!ht]
+                \resizebox{\columnwidth}{!}{\input{./ee18btech11041/figs/constellation.tex}}
+\label{fig:ee18btech11041_fig1}
+\caption{constellation diagram}
+\end{figure}
+
+%
+\item See Table \ref{table: } for the encoding scheme.
+\end{enumerate}
+\subsection{Demodulation}
+\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
+\item The received symbol is then obtained as
+\begin{align}
+\vec{y} = \sqrt{E_s}\vec{s} + \vec{n}
+\end{align}
+%
+where $E_s$ is the symbol energy and 
+
+\begin{align}
+\vec{n} &\sim \mathcal{N}\brak{\vec{0},\frac{N_0}{2}\vec{I}}
+\\
+\vec{s} &\in \cbrak{\vec{s}_m}_{m = 0}^{3}
+\end{align}
+\item The decision rule is given by Fig. \ref{fig:ee18btech11012_fig2} and can be expressed as
+
+
+
+
+
+
+
+\begin{figure}[!ht]
+
+                \resizebox{\columnwidth}{!}{\input{./ee18btech11041/figs/decision.tex}}
+
+\label{fig:ee18btech11041_fig2}
+\caption{decision regions}
+	
+\end{figure}
+
+Let \textbf{r} be the received bits, \textbf{r} = [$r_1$,$r_2$]. 
+\begin{align}
+    r_1 = 
+    \begin{cases}
+    0, &  \textbf{y} \in D1\cup D2 \Longleftrightarrow  y_1 + y_2 > 0\\
+    1, &  \textbf{y} \in D3\cup D4 \Longleftrightarrow  y_1 + y_2 < 0
+    \end{cases}
+    \label{eq:ee18btech11041_eq1}
+\end{align}
+
+\begin{align}
+    r_2 = 
+    \begin{cases}
+    0, &  \textbf{y} \in D1\cup D4 \Longleftrightarrow  y_2 - y_1 < 0\\
+    1, &  \textbf{y} \in D2\cup D3 \Longleftrightarrow  y_2 - y_1 > 0
+    \end{cases}
+    \label{eq:ee18btech11041_eq2}
+\end{align}
+
+From eq.\ref{eq:ee18btech11041_eq1} and eq.\ref{eq:ee18btech11041_eq2}
+\\
+For detecting $s_0$, $y_1 > -y_2$ and $y_1 > y_2$.
+\\
+For detecting $s_1$, $y_1>-y_2$ and $y_1<y_2$.
+\\
+For detecting $s_2$,  $y_1<-y_2$ and $y_1<y_2$.
+\\
+For detecting $s_3$, $y_1<-y_2$ and $y_1>y_2$.
+
+
+
+
+\item The following code has simulation of QPSk.
+\begin{lstlisting}
+ codes/qpsk.py
+\end{lstlisting}
+
+\end{enumerate}
