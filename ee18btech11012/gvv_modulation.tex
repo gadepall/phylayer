@@ -101,11 +101,8 @@ columns=fullflexible
 \newcommand{\BEQA}{\begin{eqnarray}}
 \newcommand{\EEQA}{\end{eqnarray}}
 \newcommand{\define}{\stackrel{\triangle}{=}}
-
 \bibliographystyle{IEEEtran}
 %\bibliographystyle{ieeetr}
-
-
 \providecommand{\mbf}{\mathbf}
 \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
 \providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
@@ -140,10 +137,9 @@ columns=fullflexible
 \numberwithin{equation}{subsection}
 %\numberwithin{problem}{section}
 %\numberwithin{definition}{section}
-%\makeatletter
-%\@addtoreset{figure}{problem}
-%\makeatother
-
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
 \let\StandardTheFigure\thefigure
 \let\vec\mathbf
 %\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
@@ -152,25 +148,18 @@ columns=fullflexible
 \renewcommand{\thetable}{\thesection}
 %\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
 %\counterwithin{equation}{enumi}
-
-
 %\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
-
 \def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
      \def\rightbox#1{\makebox[0in][r]{#1}}
      \def\centbox#1{\makebox[0in]{#1}}
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
-
 %\vspace{3cm}
-
 \title{Physical Layer Design for a Narrow Band Communication System}
 \author{G V V Sharma}
 %\title{
 %	\logo{Matrix Analysis through Octave}{\begin{center}\includegraphics[scale=.24]{tlc}\end{center}}{}{HAMDSP}
 %}
-
-
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 %\title{Matrix Analysis through Octave}
@@ -184,7 +173,6 @@ columns=fullflexible
 % a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
 % was not built to handle multiple paragraphs
 %
-
 %\author{<-this % stops a space
 %\thanks{}}
 %}
@@ -205,9 +193,6 @@ columns=fullflexible
 % you are supposed to have spaces between the names. For what it is worth,
 % this is a minor point as most people would not even notice if the said evil
 % space somehow managed to creep in.
-
-
-
 % The paper headers
 %\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
 %{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
@@ -218,31 +203,19 @@ columns=fullflexible
 % *** name in the headers of peer review papers.                   ***
 % You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
 % you desire.
-
-
-
-
 % If you want to put a publisher's ID mark on the page you can do it like
 % this:
 %\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
 % Remember, if you use this you must call \IEEEpubidadjcol in the second
 % column for its text to clear the IEEEpubid mark.
-
-
-
 % make the title area
 \maketitle
-
 \newpage
-
 %\tableofcontents
-
-%\bigskip
-%
-%\renewcommand{\thefigure}{\theenumi}
-%\renewcommand{\thetable}{\theenumi}
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
 %\renewcommand{\theequation}{\theenumi}
-
 %\begin{abstract}
 %%\boldmath
 %In this letter, an algorithm for evaluating the exact analytical bit error rate  (BER)  for the piecewise linear (PL) combiner for  multiple relays is presented. Previous results were available only for upto three relays. The algorithm is unique in the sense that  the actual mathematical expressions, that are prohibitively large, need not be explicitly obtained. The diversity gain due to multiple relays is shown through plots of the analytical BER, well supported by simulations. 
@@ -254,14 +227,10 @@ columns=fullflexible
 % then you can use LaTeX's standard command \boldmath at the very start
 % of the abstract to achieve this. Many IEEE journals frown on math
 % in the abstract anyway.
-
 % Note that keywords are not normally used for peerreview papers.
 %\begin{IEEEkeywords}
 %Cooperative diversity, decode and forward, piecewise linear
 %\end{IEEEkeywords}
-
-
-
 % For peer review papers, you can put extra information on the cover
 % page as needed:
 % \ifCLASSOPTIONpeerreview
@@ -271,11 +240,9 @@ columns=fullflexible
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
 %\IEEEpeerreviewmaketitle
-
 \begin{abstract}
-The design and implementation of a simple narrow band communication system is provided in this document. TCM-8PSK is used for modulation, followed by channel estimation and equalization in the presence of Rayleigh fading.  Through simulation results, it is shown that the proposed system is robust.
+This a simple document explaining a question about the concept of similar triangles.
 \end{abstract}
-
 Download all python codes from 
 %
 \begin{lstlisting}
@@ -288,12 +255,8 @@ and latex-tikz codes from
 svn co https://github.com/gadepall/school/trunk/ncert/geometry/figs
 \end{lstlisting}
 %
-
 \section{Specifications}
-\input{./chapters/specs.tex}
-\section{8-PSK}
-\input{./ee18btech11012/chapters/ee18btech11012.tex}
-
+\input{./chapters/ee18btech11012.tex}
 %In right triangle ABC, right angled at C, M is
 %the mid-point of hypotenuse AB. C is joined to
 %M and produced to a point D such that DM =
@@ -318,9 +281,5 @@ svn co https://github.com/gadepall/school/trunk/ncert/geometry/figs
 %\subsection{Sol.c)}
 %\input{./chapters/sol_c.tex}
 %\subsection{Sol.d)}
-%\input{chapters/sol_d.tex}
-
-
+%\input{8Psk.tex}
 \end{document}
-
-
