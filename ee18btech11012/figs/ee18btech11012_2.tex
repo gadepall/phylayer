@@ -125,7 +125,7 @@
 \setlength\gnumericTableWidth{%
 	71pt+%
 	53pt+%
-	69pt+%
+	73pt+%
 0pt}
 \def\gumericNumCols{3}
 \setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
@@ -148,11 +148,13 @@
 \ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{40pt*\gnumericScale}@{}}x\end{tabular}}
 \ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{71pt*\gnumericScale}@{}}x\end{tabular}}
 \ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{205pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColD}}{\newlength{\gnumericColD}}{}\settowidth{\gnumericColD}{\begin{tabular}{@{}p{200pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{tabular}[c]{%
 	b{\gnumericColA}%
 	b{\gnumericColB}%
 	b{\gnumericColC}%
+	b{\gnumericColD}%
 	}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,79 +188,97 @@
 %	\multicolumn{3}{c}{That's all folks} \\ \hline 
 %	\endlastfoot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hhline{|-|-|-}
+\hhline{|-|-|-|-}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
 	{\gnumericPB{\centering}\gnumbox{Symbol}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{Decision region}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{Inequality}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{Matrix Inequality}}
 \\
-\hhline{|---|}
+\hhline{|----|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$s_0$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{s}_0$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{D1}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{$y_2+(\sqrt{2}-1)y_1>0$, $y_2-(\sqrt{2}-1)y_1<0$}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{${\myvec{\sqrt{2}-1 & 1 \\ \sqrt{2}-1 & -1 }\vec{y}\succeq \vec{0}}$}}
 \\
-\hhline{|---|}
+\hhline{|----|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$s_1$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{s}_1$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{D2}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{$y_2-(\sqrt{2}+1)y_1<0$, $y_2-(\sqrt{2}-1)y_1>0$}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{${\myvec{\sqrt{2}+1 & -1 \\ -(\sqrt{2}-1) & 1}\vec{y}\succeq \vec{0}}$}}
 \\
-\hhline{|---|}
+\hhline{|----|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$s_2$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{s}_2$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{D3}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{$y_2-(\sqrt{2}+1)y_1 >0$, $y_2+(\sqrt{2}+1)y_1>0$}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{${\myvec{-(\sqrt{2}+1) & -1 \\ \sqrt{2}+1 & 1}\vec{y}\succeq \vec{0}}$}}
 \\
-\hhline{|---|}
+\hhline{|----|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$s_3$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{s}_3$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{D4}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{ $y_2+(\sqrt{2}-1)y_1>0$, $y_2+(\sqrt{2}+1)y_1<0$}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{${\myvec{\sqrt{2}-1 & 1 \\ -(\sqrt{2}+1) & -1}\vec{y}\succeq \vec{0}}$}}
 \\
-\hhline{|---|}
+\hhline{|----|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$s_4$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{s}_4$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{D5}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{ $y_2+(\sqrt{2}-1)y_1<0$, $y_2-(\sqrt{2}-1)y_1>0$}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{${\myvec{-(\sqrt{2}-1) & -1 \\ -(\sqrt{2}-1) & 1}\vec{y}\succeq \vec{0}}$}}
 \\
-\hhline{|---|}
+\hhline{|----|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$s_5$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{s}_5$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{D6}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{ $y_2-(\sqrt{2}+1)y_1>0$, $y_2-(\sqrt{2}-1)y_1<0$}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{${\myvec{-(\sqrt{2}+1 & 1 \\ \sqrt{2}-1 & -1}\vec{y}\succeq \vec{0}}$}}
 \\
-\hhline{|---|}
+\hhline{|----|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$s_6$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{s}_6$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{D7}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{ $y_2-(\sqrt{2}+1)y_1<0$, $y_2+(\sqrt{2}+1)y_1<0$}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{${\myvec{\sqrt{2}+1 & -1 \\-(\sqrt{2}+1) & -1 }\vec{y}\succeq \vec{0}}$}}
 \\
-\hhline{|---|}
+\hhline{|----|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox{$s_7$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{s}_7$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox{D8}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\gnumericPB{\centering}\gnumbox{ $y_2+(\sqrt{2}-1)y_1<0$, $y_2+(\sqrt{2}+1)y_1>0$}}
+	&\multicolumn{1}{p{\gnumericColD}|}%
+	{\gnumericPB{\centering}\gnumbox{${\myvec{-(\sqrt{2}-1) & -1 \\ \sqrt{2}+1 & 1 }\vec{y}\succeq \vec{0}}$}}
 \\
-\hhline{|-|-|-|}
+\hhline{|-|-|-|-|}
 \end{tabular}
 
 
