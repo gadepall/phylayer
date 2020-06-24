@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.6.12)  23 JUN 2020 18:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.6.12)  24 JUN 2020 08:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1858,18 +1858,18 @@ LaTeX Warning: Reference `table: ' on page 3 undefined on input line 14.
 LaTeX Warning: Reference `table: ' on page 3 undefined on input line 22.
 
 (./ee18btech11041/figs/decision.tex)) [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
  (./gvv_phydes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 328.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 328.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 302.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
 Package rerunfilecheck Info: File `gvv_phydes.out' has not changed.
 (rerunfilecheck)             Checksum: 2E3BA146DDCD7AB6555F1581548C73E8;354.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 328.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 302.
  ) 
 Here is how much of TeX's memory you used:
  39865 strings out of 480609
