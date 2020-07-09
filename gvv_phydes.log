@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.6.12)  24 JUN 2020 15:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.6.12)  9 JUL 2020 07:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -119,10 +119,8 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/was/gensymb
 .sty
 Package: gensymb 2003/07/02 v1.0 (WaS)
-)
-(/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/amsmath/ams
-math.sty
-Package: amsmath 2020/01/20 v2.17e AMS math features
+) (/data/data/com.termux/files/home/texmf/tex/latex/tmeslatex/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
@@ -137,9 +135,8 @@ File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
 \ex@=\dimen158
 ))
-(/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/amsmath/ams
-bsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+(/data/data/com.termux/files/home/texmf/tex/latex/tmeslatex/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen159
 )
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/amsmath/ams
@@ -147,20 +144,54 @@ opn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count182
-LaTeX Info: Redefining \frac on input line 227.
+LaTeX Info: Redefining \frac on input line 211.
 \uproot@=\count183
 \leftroot@=\count184
-LaTeX Info: Redefining \overline on input line 389.
+LaTeX Info: Redefining \overline on input line 307.
 \classnum@=\count185
 \DOTSCASE@=\count186
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box47
 \strutbox@=\box48
 \big@size=\dimen160
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+
+
+Package amsmath Warning: Unable to redefine math accent \hat.
+
+
+Package amsmath Warning: Unable to redefine math accent \check.
+
+
+Package amsmath Warning: Unable to redefine math accent \tilde.
+
+
+Package amsmath Warning: Unable to redefine math accent \acute.
+
+
+Package amsmath Warning: Unable to redefine math accent \grave.
+
+
+Package amsmath Warning: Unable to redefine math accent \dot.
+
+
+Package amsmath Warning: Unable to redefine math accent \ddot.
+
+
+Package amsmath Warning: Unable to redefine math accent \breve.
+
+
+Package amsmath Warning: Unable to redefine math accent \bar.
+
+
+Package amsmath Warning: Unable to redefine math accent \vec.
+
+
+Package amsmath Warning: Unable to redefine math accent \mathring.
+
 \macc@depth=\count187
 \c@MaxMatrixCols=\count188
 \dotsspace@=\muskip16
@@ -181,8 +212,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \multlinegap=\skip51
 \multlinetaggap=\skip52
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2859.
-LaTeX Info: Redefining \] on input line 2860.
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
 )
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/amscls/amst
 hm.sty
@@ -430,6 +461,13 @@ LaTeX Info: Redefining \addtolength on input line 81.
 hsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
 )
+
+LaTeX Warning: You have requested, on input line 117, version
+               `2016/11/05' of package amsmath,
+               but only version
+               `2000/07/18 v2.13 AMS math features'
+               is available.
+
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
@@ -517,9 +555,8 @@ Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/pgf/basicla
 yer/pgfcore.sty
-(/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/graphics/gr
-aphicx.sty
-Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+(/data/data/com.termux/files/home/texmf/tex/latex/tmeslatex/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/data/data/com.termux/files/usr/share/texlive/texmf-dist/tex/latex/graphics/gr
 aphics.sty
@@ -1829,7 +1866,7 @@ syc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 \gnumericColB=\skip89
-)) (./chapters/framing.tex (./ee18btech11041/figs/frame.tex))
+)) (./chapters/framing.tex (./figs/frame.tex))
 (./ee18btech11012/chapters/ee18btech11012.tex
 (./ee18btech11012/figs/8psk_constellation.tex)
 (./ee18btech11012/figs/ee18btech11012_1.tex
@@ -1847,23 +1884,28 @@ Underfull \vbox (badness 6477) has occurred while \output is active []
 (./ee18btech11012/figs/ee18btech11012_decision.tex)
 (./ee18btech11012/figs/ee18btech11012_2.tex
 \gnumericColD=\skip91
-)) [2]
+)
+File: ./figs/ee18btech11012.eps Graphic file (type eps)
+ <./figs/ee18btech11012.eps>
+[2]) [3
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
  (./gvv_phydes.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 302.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
 Package rerunfilecheck Info: File `gvv_phydes.out' has not changed.
-(rerunfilecheck)             Checksum: 2955F460ECB6A88E75240927E68D7766;195.
+(rerunfilecheck)             Checksum: 171C2927A9CDC960336786AEC8B0B285;254.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 302.
  ) 
 Here is how much of TeX's memory you used:
- 39585 strings out of 480609
- 917074 string characters out of 5892832
- 1366932 words of memory out of 5000000
- 54669 multiletter control sequences out of 15000+600000
+ 39568 strings out of 480609
+ 916718 string characters out of 5892832
+ 1366621 words of memory out of 5000000
+ 54650 multiletter control sequences out of 15000+600000
  588530 words of font info for 148 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  60i,25n,91p,502b,911s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_phydes.dvi (2 pages, 63660 bytes).
+Output written on gvv_phydes.dvi (3 pages, 65408 bytes).
