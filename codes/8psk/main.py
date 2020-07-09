@@ -16,11 +16,13 @@ import shlex
 #end if
 
 from qfunc import qfunc
-from bs import bitstream
+#from bs import bitstream
 #from mapping import mapping
-from mapping_new import mapping
-from bit2symb import symb
-from mats import *
+#from mapping_new import mapping
+#from bit2symb import symb
+from mod import *
+from demod import *
+#from mats import *
 #from symbol import symb
 #from received import rec
 
@@ -37,14 +39,26 @@ bits = bitstream(11)
 #Intermediate steps  required for converting list to
 #numpy matrix
 symbols_lst = symb(bits)
-symbols_array = np.array(symbols_lst)
-symbols = symbols_array[:,:,0].T
+#symbols_array = np.array(symbols_lst).T
+symbols = np.array(symbols_lst).T
+#symbols = symbols_array[:,:,0].T
+#print(symbols)
 
 #Adding AWGN noise with 0 mean and unit variance
 noise = np.random.normal(0,1,(2,simlen))
 rx_vec = symbols+noise
-
-print(s7)
+#a = decode(rx_vec[:,0])
+#print(rx_vec[:,0])
+rx_symb = decode(rx_vec[:,0])
+rx_bits = detect(rx_symb)
+#print(decode(rx_vec[:,0]))
+print(decode(rx_vec[:,0]), rx_bits)
+#print(symbols[:,0],decode(rx_vec[:,0]))
+#symbol=[]
+#	symbol=symb()
+#	snr_db = np.linspace(0,9,10)
+#
+#print(s[0,:,:], rx_vec[:,0], s@rx_vec[:,0])
 #Detecting symbols
 
 #print( bitstream(10))
