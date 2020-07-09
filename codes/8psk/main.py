@@ -1,3 +1,7 @@
+#Code by GVV Sharma
+#July 9, 2020
+#Released under GNU/GPL
+#SER simulation for 8-PSK 
 from __future__ import division
 import random
 import numpy as np

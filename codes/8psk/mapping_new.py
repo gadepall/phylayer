@@ -1,7 +1,7 @@
 #Code by GVV Sharma
 #July 9, 2020
 #Released under GNU/GPL
-#Converts bits to 9-PSK symbols using gray code
+#Converts bits to 8-PSK symbols using gray code
 import numpy as np
 def mapping(b0,b1,b2):
 	s = np.zeros((2,1))
