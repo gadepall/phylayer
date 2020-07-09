@@ -16,8 +16,9 @@ from bs import bitstream
 #from mapping import mapping
 from mapping_new import mapping
 from bit2symb import symb
+from mats import *
 #from symbol import symb
-from received import rec
+#from received import rec
 
 
 #Bitstream size
@@ -39,6 +40,7 @@ symbols = symbols_array[:,:,0].T
 noise = np.random.normal(0,1,(2,simlen))
 rx_vec = symbols+noise
 
+print(s7)
 #Detecting symbols
 
 #print( bitstream(10))
