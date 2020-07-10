@@ -15,12 +15,6 @@ def decode(vec):
 #		print(y)
 		if (y [0] >= 0) and (y[1] >= 0):
 			return s[i,:]
-#def decode_test(vec):
-#	for i in range(8):
-#		y = A[i,:,:]@vec
-##		print(y)
-#		if (y [0] >= 0) and (y[1] >= 0):
-#			return s[i,:]
 
 #Extracting bits from demodulated symbols
 def detect(vec):
