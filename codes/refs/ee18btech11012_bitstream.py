@@ -29,8 +29,13 @@ snr_db=[]
 snrlen=10
 
 #SNR in dB
-snr_db = range(snrlen)
+#snr_db = range(snrlen)
+snr_db = np.linspace(0,10,10)
+#range(snrlen)
 
+#Actual SNR
+snr = 10**(0.1*snr_db)
+print(snr)
 #Bitstream size
 bitsimlen = 99999
 #Symbol stream size
@@ -45,24 +50,29 @@ bits = bitstream(bitsimlen)
 symbols_lst = symb(bits)
 symbols = np.array(symbols_lst).T
 
-err =[]
+ser =[]
 #s_in,s_q =0,0
 ber=[]
+ser_anal=[]
 for k in range(0,snrlen):
-	snr = 10**(0.1*snr_db[k])
-	received = []
+#	snr = 10**(0.1*snr_db[k])
+#	received = []
 	t=0
 	noise = np.random.normal(0,1,(2,simlen))
-	y = mp.sqrt(6*snr)*symbols+noise
+	y = np.sqrt(6*snr[k])*symbols+noise
 	for i in range(simlen):
 		srx = decode(y[:,i])
 		if symbols[0,i]==srx[0] and symbols[1,i]==srx[1]:
 			t+=1;
 	err.append(1-(t/33334.0))
 	ber.append(2*qfunc((mp.sqrt(6*snr))*np.sin(np.pi/8)))
+#	ser.append(1-(t/33334.0))
+#	ser_anal.append(2*qfunc((np.sqrt(6*snr))*np.sin(np.pi/8)))
 
 plt.semilogy(snr_db,ber,label='Analysis')
 plt.semilogy(snr_db,err,'o',label='Sim')
+#plt.semilogy(snr_db,ser_anal,label='Analysis')
+#plt.semilogy(snr_db,ser,'o',label='Sim')
 plt.xlabel('SNR$\\left(\\frac{E_b}{N_0}\\right)$')
 plt.ylabel('$P_e$')
 plt.legend()

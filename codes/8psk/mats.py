@@ -1,9 +1,13 @@
 #Code by GVV Sharma
-#July 9, 2020
+#July 10, 2020
 #Released under GNU/GPL
-#8PSK constellation and demodulation matrx
+
+#8PSK constellation 
+#Demodulation matrx
+#Qfunction 
 
 import numpy as np
+from scipy import special
 
 #Generating costellation points
 s = np.zeros((8,2))
@@ -33,3 +37,6 @@ gray[6,:] = np.array(([1,0,1]))
 gray[7,:] = np.array(([1,0,0]))
 
 
+#Q-function
+def qfunc(x):
+	return 0.5*special.erfc(x/np.sqrt(2))
