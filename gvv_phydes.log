@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.6.12)  10 JUL 2020 19:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.6.12)  11 JUL 2020 17:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1875,14 +1875,11 @@ File: utxsyc.fd 2000/12/15 v3.1
 (./ee18btech11012/figs/8psk_constellation.tex)
 (./ee18btech11012/figs/ee18btech11012_1.tex
 \gnumericColC=\skip90
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
+) [1
 
 
 ]
-Underfull \vbox (badness 6477) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 (./ee18btech11012/figs/ee18btech11012_decision.tex)
@@ -1916,12 +1913,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 304.
  ) 
 Here is how much of TeX's memory you used:
- 39602 strings out of 480609
- 917242 string characters out of 5892832
- 1367083 words of memory out of 5000000
- 54678 multiletter control sequences out of 15000+600000
+ 39696 strings out of 480609
+ 918568 string characters out of 5892832
+ 1367033 words of memory out of 5000000
+ 54772 multiletter control sequences out of 15000+600000
  591820 words of font info for 160 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  60i,25n,91p,502b,911s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_phydes.dvi (3 pages, 70944 bytes).
+Output written on gvv_phydes.dvi (3 pages, 71732 bytes).

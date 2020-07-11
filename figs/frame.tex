@@ -1,22 +1,49 @@
 \begin{tikzpicture}
 
+\def\a{3}
+%\node (O) at (0,0)[point,label=above right:$A$] {};
+\node (O) at (0,0)[] {};
+\node (F) at (7*\a,0)[] {};
+\node (A) at (\a,0)[] {};
+\node (B) at (2*\a,0)[] {};
+\node (C) at (3*\a,0)[] {};
+\node (D) at (4*\a,0)[] {};
+\node (E) at (6*\a,0)[] {};
+\node (G) at (0,\a)[] {};
+\node (H) at (0,-1)[] {};
+\node (I) at (0,4)[] {};
 
-\draw (0,0) -- (12,0);
-\draw (0,0) -- (0,-3) -- (12,-3) -- (12,0);
-\draw (3,0) -- (3,-3);
-\draw (6,0) -- (6,-3);
+\node [align=center] at ($(O)!0.5!(A)+0.5*(G)$) {Ramp Up \\ (116 $\mu$s)};
+\node [align=center] at ($(B)!0.5!(A)+0.5*(G)$) {SOM\\8 bytes};
+\node [align=center] at ($(B)!0.5!(C)+0.5*(G)$) {Training \\ Sequence\\19.5 bytes};
+\node [align=center] at ($(D)!0.5!(C)+0.5*(G)$) {MAC\\overheads};
+\node [align=center] at ($(D)!0.5!(E)+0.5*(G)$) {Pay Load\\ 32 bytes};
+\node [align=center] at ($(F)!0.5!(E)+0.5*(G)$) {Prop Delay\\ (100 $\mu$s)};
 
 
-\node [align=center] at (1.5,-1.5) {SOM};
-\node [align=center] at (4.5,-1.5) {PILOT};
-\node [align=center] at (9,-1.5) {PAYLOAD};
-
-\draw[<->,thick] (0,-4)--(3,-4) node[align = center] at (1.5,-4.5) {$32 symbols$};
-\draw[<->,thick] (3,-4)--(6,-4) node[align = center] at (4.5,-4.5) {$32 symbols$};
-\draw[<->,thick] (6,-4)--(12,-4) node[align = center] at (9,-4.5) {$436 symbols$};
-\draw[<->,thick] (0,-5)--(12,-5) node[align = center] at (6,-5.5) {$2ms$};
-
-\node [align=center] at (6,-6) {$500 symbols$};
+\draw (O) -- (F);
+\draw (O) -- ($(O)+(G)$) -- ($(F)+(G)$) -- (F);
+\draw (A) -- ($(A)+(G)$);
+\draw (B) -- ($(B)+(G)$);
+\draw (C) -- ($(C)+(G)$);
+\draw (D) -- ($(D)+(G)$);
+\draw (E) -- ($(E)+(G)$);
+\draw (F) -- ($(F)+(G)$);
+%\draw (3,0) -- (3,-3);
+%\draw (6,0) -- (6,-3);
+%
+%
+%\node [align=center] at (1.5,-1.5) {SOM};
+%\node [align=center] at (4.5,-1.5) {PILOT};
+%\node [align=center] at (9,-1.5) {PAYLOAD};
+%
+%\draw[<->,thick] (0,-1)--(3,-1) node[align = center] at $(B)-(0,1)$ {$1092 u s$};
+\draw[<->,thick] (H)--($(D)+(H)$) node[align = center] at (1.5*\a,-1.5) {1092 $\mu$s};
+\draw[<->,thick] ($(O)+(I)$)--($(F)+(I)$) node[align = center] at (3.5*\a,4.5) {1 Slot = 2ms};
+%\draw[<->,thick] (6,-4)--(12,-4) node[align = center] at (9,-4.5) {$436 symbols$};
+%\draw[<->,thick] (0,-5)--(12,-5) node[align = center] at (6,-5.5) {$2ms$};
+%
+%\node [align=center] at (6,-6) {$500 symbols$};
 
 
 
