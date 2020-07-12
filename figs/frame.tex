@@ -21,29 +21,15 @@
 \node [align=center] at ($(F)!0.5!(E)+0.5*(G)$) {Prop Delay\\ (100 $\mu$s)};
 
 
-\draw (O) -- (F);
-\draw (O) -- ($(O)+(G)$) -- ($(F)+(G)$) -- (F);
+\draw (O) -- (F)-- ($(F)+(G)$)-- ($(O)+(G)$)--(O);
 \draw (A) -- ($(A)+(G)$);
 \draw (B) -- ($(B)+(G)$);
 \draw (C) -- ($(C)+(G)$);
 \draw (D) -- ($(D)+(G)$);
 \draw (E) -- ($(E)+(G)$);
 \draw (F) -- ($(F)+(G)$);
-%\draw (3,0) -- (3,-3);
-%\draw (6,0) -- (6,-3);
-%
-%
-%\node [align=center] at (1.5,-1.5) {SOM};
-%\node [align=center] at (4.5,-1.5) {PILOT};
-%\node [align=center] at (9,-1.5) {PAYLOAD};
-%
-%\draw[<->,thick] (0,-1)--(3,-1) node[align = center] at $(B)-(0,1)$ {$1092 u s$};
 \draw[<->,thick] (H)--($(D)+(H)$) node[align = center] at (1.5*\a,-1.5) {1092 $\mu$s};
 \draw[<->,thick] ($(O)+(I)$)--($(F)+(I)$) node[align = center] at (3.5*\a,4.5) {1 Slot = 2ms};
-%\draw[<->,thick] (6,-4)--(12,-4) node[align = center] at (9,-4.5) {$436 symbols$};
-%\draw[<->,thick] (0,-5)--(12,-5) node[align = center] at (6,-5.5) {$2ms$};
-%
-%\node [align=center] at (6,-6) {$500 symbols$};
 
 
 
