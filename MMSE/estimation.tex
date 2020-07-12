@@ -7,7 +7,7 @@
 The multipath fading cahnnel is modelled as a linear finite impulse-reponse filter.
 Let $\vec{x}_n \in \cbrak{\vec{s}_k}_{0}^{7}$ be transmitted 8-PSK symbols.  The received symbols can then be expressed as
 \begin{align}
-\vec{r} = \vec{x} * \vec{h}
+\vec{r}_n = \vec{x}_n * \vec{g}_n
 \end{align}
 where
 %\\
@@ -18,7 +18,7 @@ where
 %Where $g_n$ is the set of tap weights given by:
 \begin{align}
 \label{eq:channel_taps}
-h_n &= 
+\vec{g}_n &= 
 %\vec{a}_n*h_n
 \sum_{k=0}^{K-1}\vec{a}_k \sinc{\brak{\frac{\tau_k}{t_s}-n}}
 \\
@@ -43,7 +43,7 @@ N_1=N_2=800
 \eqref{eq:channel_taps} can be expressed as
 \begin{align}
 \label{eq:channel_taps_mat}
-\vec{h}=
+\vec{g}=
 %\vec{g}_n &= 
 %\vec{a}_n*h_n
 \vec{T}\vec{a}
@@ -56,4 +56,4 @@ j &= 0, 1, \dots K-1
 \\
 -N_1 &\leq i \leq N_2
 \end{align}
-and $\vec{a}$ is a $K\times 1$ vector with entries $a_k$.
+and $\vec{a}$ is a $\vec{K}\times$ vector with entries $a_k$.
