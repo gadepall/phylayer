@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.6.12)  12 JUL 2020 07:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.6.12)  12 JUL 2020 08:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1680,10 +1680,10 @@ Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
 ) (./gvv_phydes.aux
 
-LaTeX Warning: Label `eq:freq_offset_model' multiply defined.
-
-
 LaTeX Warning: Label `fig:lms_mse' multiply defined.
+
+
+LaTeX Warning: Label `eq:freq_offset_model' multiply defined.
 
 )
 \openout1 = `gvv_phydes.aux'.
@@ -1893,7 +1893,7 @@ File: ./figs/ee18btech11012.eps Graphic file (type eps)
  <./figs/ee18btech11012.eps>
 [2]) (./LMS_equalizer_octave/chapters/intro.tex)
 (./LMS_equalizer_octave/chapters/equation.tex)
-(./LMS_equalizer_octave/chapters/result.tex
+(./LMS_equalizer_octave/chapters/result.tex [3]
 File: ./LMS_equalizer_octave/figs/psk.eps Graphic file (type eps)
 
 <./LMS_equalizer_octave/figs/psk.eps>
@@ -1902,14 +1902,16 @@ File: ./LMS_equalizer_octave/figs/constellation.eps Graphic file (type eps)
 <./LMS_equalizer_octave/figs/constellation.eps>
 File: ./LMS_equalizer_octave/figs/lms.eps Graphic file (type eps)
 
-<./LMS_equalizer_octave/figs/lms.eps>) (./chapters/freq_sync.tex [3]
+<./LMS_equalizer_octave/figs/lms.eps>) (./chapters/freq_sync.tex
 
 LaTeX Warning: Reference `fig:freq_best' on page 4 undefined on input line 67.
 
 
 LaTeX Warning: Reference `fig:freq_est' on page 4 undefined on input line 68.
 
-) (./gvv_phydes.bbl) [4]
+) (./gvv_phydes.bbl [4]) [5
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
  (./gvv_phydes.aux)
@@ -1927,12 +1929,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 315.
  ) 
 Here is how much of TeX's memory you used:
- 39989 strings out of 480609
- 921499 string characters out of 5892832
- 1367506 words of memory out of 5000000
- 55052 multiletter control sequences out of 15000+600000
+ 39991 strings out of 480609
+ 921537 string characters out of 5892832
+ 1367581 words of memory out of 5000000
+ 55054 multiletter control sequences out of 15000+600000
  591820 words of font info for 160 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  60i,25n,91p,502b,1019s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on gvv_phydes.dvi (4 pages, 81428 bytes).
+Output written on gvv_phydes.dvi (5 pages, 84176 bytes).
