@@ -1,10 +1,17 @@
-%\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
+\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
 \numberwithin{equation}{subsection}
 \numberwithin{figure}{subsection}
 \numberwithin{table}{subsection}
 
-%\item 
-The multipath fading cahnnel is modelled as a linear finite impulse-reponse filter.
+\item See Table \ref{table:channel_param} for details of various parameters.
+\begin{table}[!ht]
+\centering
+\input{./LMS_equalizer_octave/tables/lms_par.tex}
+\caption{}
+\label{table:channel_param}
+\end{table}
+
+\item The multipath fading cahnnel is modelled as a linear finite impulse-reponse filter.
 Let $\vec{x}_n \in \cbrak{\vec{s}_k}_{0}^{7}$ be transmitted 8-PSK symbols.  The received symbols can then be expressed as
 \begin{align}
 \vec{r} = \vec{x} * \vec{h}
@@ -57,3 +64,4 @@ j &= 0, 1, \dots K-1
 -N_1 &\leq i \leq N_2
 \end{align}
 and $\vec{a}$ is a $K\times 1$ vector with entries $a_k$.
+\end{enumerate}
