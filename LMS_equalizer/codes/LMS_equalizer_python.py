@@ -9,10 +9,10 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import math
-import cmath
 import random
+from scipy import signal
 from LMS_func import LMS
+
 #if using termux
 import subprocess
 import shlex
@@ -22,23 +22,27 @@ import shlex
 TimeSlot=2e-3 #Transmit time duration
 SNR = 18 #Signal to noise ratio
 Rs = 185e3 # symbol rate
-a=np.array([1+0j,1/math.sqrt(2)+1j*1/math.sqrt(2) ,1j ,-1/math.sqrt(2)+1j*1/math.sqrt(2), -1 ,-1/math.sqrt(2)-1j*1/math.sqrt(2), -1j ,1/math.sqrt(2)-1j*1/math.sqrt(2)])
+N = 10 #channel filter length
+P = 10000 #pilot symbols
+#P = 156//3 #pilot symbols
+L = 255//3 #payload
 
-Ak=[]
-for i in range(10000):
-	Ak.append(0)
+a=np.array([1+0j,1/np.sqrt(2)+1j*1/np.sqrt(2) ,1j ,-1/np.sqrt(2)+1j*1/np.sqrt(2), -1 ,-1/np.sqrt(2)-1j*1/np.sqrt(2), -1j ,1/np.sqrt(2)-1j*1/np.sqrt(2)])
 
-for ii in range(10000):
+
+Ak=np.zeros(P)+1j*np.zeros(P)
+payload=np.zeros(L)+1j*np.zeros(L)
+
+#Pilot Symbols
+for ii in range(P):
 	Ak[ii] = a[random.randint(0,7)]
-ar=[x.real for x in a]
-ai=[x.imag for x in a]
-plt.scatter(ar,ai)
-#plt.title('8-PSK')
-#plt.grid()
-##if using termux
-#plt.savefig('./figs/lms_test_symb.pdf')
-#plt.savefig('./figs/lms_test_symb.eps')
-#plt.show()
+
+Akr = np.real(Ak)
+Aki = np.imag(Ak)
+
+#Payload Symbols
+for ii in range(L):
+	payload[ii] = a[random.randint(0,7)]
 
 
 # Channel creation and channel modelling
@@ -50,47 +54,83 @@ pg=np.array([0.9417 - 0.2214j ,-0.1596 - 0.0874j ,-0.0644 - 0.0163j, -0.0645 - 0
 
 #readsfrom tex file command File_object.readline(n)
 #pg=dlmread('path_gains.dat',',',[0,0,0,4])
+#Channel taps
 pd=np.array([0, 2.0000e-06 ,4.0000e-06, 6.0000e-06, 8.0000e-06])/ts
 g=[]
-for n in range(0,1600):
+for n in range(0,N):
      g.append(0)
      for k in range(5):
-         g[n]=g[n]+pg[k]*np.sinc(pd[k]-n+800)
+         g[n]=g[n]+pg[k]*np.sinc(pd[k]-n+N/2)
+
+#Channel response
 Rk=np.convolve(Ak,g,'same')
-noise = (1/math.sqrt(2))*(np.random.randn(len(Rk)) + 1j*np.random.randn(len(Rk))) #Initial noise vector
+noise = (1/np.sqrt(2))*(np.random.randn(len(Rk)) + 1j*np.random.randn(len(Rk))) #Initial noise vector
 P_s =np.var(Rk)  #Signal power
 P_n = np.var(noise)  #Noise power
+
 # Defining noise scaling factor based on the desired SNR:
-noise_scaling_factor = math.sqrt((P_s/P_n)/10**(SNR/10)) 
+noise_scaling_factor = np.sqrt((P_s/P_n)/10**(SNR/10)) 
+
+#Adding AWGN
 Rk_noisy=Rk+noise*noise_scaling_factor # Received signal
 print(len(Rk_noisy))
-rkr=[x.real for x in Rk]
-rki=[x.imag for x in Rk]
+
+rkr=np.real(Rk)
+rki=np.imag(Rk)
+
+noisy_rkr=np.real(Rk_noisy)
+noisy_rki=np.imag(Rk_noisy)
+
+
+pay_Rk=np.convolve(payload,g,'same')
+noise = (1/np.sqrt(2))*(np.random.randn(len(pay_Rk)) + 1j*np.random.randn(len(pay_Rk))) #Initial noise vector
+pay_Rk_noisy=pay_Rk+noise*noise_scaling_factor # Received signal
+pay_rkr=[x.real for x in pay_Rk]
+pay_rki=[x.imag for x in pay_Rk]
+
+
+
+#LMS estimation
+c_LMS = LMS(Rk_noisy, Ak)
+#LMS equalization
+
+#Equalizing pilot
+y_LMS=signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(Rk_noisy))
+
+#Equalizing payload
+#y_LMS=signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(pay_Rk_noisy))
+
+#Lr=[x.real for x in y_LMS]
+#Li=[x.imag for x in y_LMS]
+Lr=np.real(y_LMS)
+Li=np.imag(y_LMS)
+
+
+#Following plots related to pilot
+
+#Plotting transmitted symbols
+plt.scatter(Akr,Aki)
+
+#Plotting channel output
 #plt.scatter(rkr,rki)
+
+#Plotting received symbols (Channel output + AWGN)
+plt.scatter(noisy_rkr,noisy_rki)
 #plt.title('Recieved constellation')
 #plt.grid()
-#plt.savefig('./figs/lms_test_rx.pdf')
-#plt.savefig('./figs/lms_test_rx.eps')
-#plt.show()
 
-#LMS algorithm
-y_LMS = LMS(Rk_noisy, Ak, Rk)
-
-Lr=[x.real for x in y_LMS]
-Li=[x.imag for x in y_LMS]
-
-
-# Plotting
+# Plotting LMS_estimate
 plt.scatter(Lr,Li)
+#End plots related to pilot
+
+#Plot parameters
 plt.title('LMS equalized constellation')
 plt.grid()
 plt.show()
 #
-
 ##if using termux
 plt.savefig('./figs/lms_test.pdf')
 plt.savefig('./figs/lms_test.eps')
-#subprocess.run(shlex.split("termux-open ./figs/lms_test_rx.pdf"))
 subprocess.run(shlex.split("termux-open ./figs/lms_test.pdf"))
 #else
 #plt.show()
