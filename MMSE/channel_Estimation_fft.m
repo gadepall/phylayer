@@ -1,4 +1,5 @@
-function h_hat = Channel_estimatiom(x_p,y_p,L)
+#function h_hat = Channel_estimatiom(x_p,y_p,L)
+function h_hat = channel_Estimation_fft(x_p,y_p,L)
     scaling_factor = 10e6;
     z_p = flip(y_p);
     y_p(1:L-1) = y_p(1:L-1)+flip(z_p(1:L-1));

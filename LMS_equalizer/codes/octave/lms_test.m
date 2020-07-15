@@ -6,6 +6,8 @@ SNR = 18; %Signal to noise ratio
 Rs = 185e3; % symbol rate
 a=[1+0i 1/sqrt(2)+1i*1/sqrt(2) 1i -1/sqrt(2)+1i*1/sqrt(2) -1 -1/sqrt(2)-1i*1/sqrt(2) -1i 1/sqrt(2)-1i*1/sqrt(2) ];
 Ak = a(randi(8,20000,1)); % 8 PSK sequence of 1000 samples
+r_a = real(a);
+i_a = imag(a);
 %figure(1); plot(real(a),imag(a),'*'); title('8PSK constellation'); grid;
 
 %% Channel creation and channel modelling
@@ -14,7 +16,7 @@ Rbit = Rsym * log2(M);      % Input bit rate
 Nos = 1;                    % Oversampling factor
 ts = (1/Rsym) / Nos; 
 %pg=[0.8776 + 0.1028i 0.3245 + 0.6739i 0.2572 + 0.1448i -0.0174 - 0.0142i 0.0736 + 0.0787i]
-pg=dlmread('path_gains.dat',',',[0,0,0,4])
+pg=dlmread('./LMS_equalizer_octave/codes/path_gains.dat',',',[0,0,0,4]);
 pd=[0 2.0000e-06 4.0000e-06 6.0000e-06 8.0000e-06]./ts;
 
 for n=200:1800
@@ -31,6 +33,8 @@ P_n = var(noise); % Noise power
 % Defining noise scaling factor based on the desired SNR:
 noise_scaling_factor = sqrt(P_s/P_n./10.^(SNR./10)); 
 Rk_noisy=Rk+noise*noise_scaling_factor; % Received signal
+r_Rk = real(Rk);
+i_Rk = imag(Rk);
 %figure(2);  plot(real(Rk),imag(Rk),'*');legend('Received constellation')
 hTap=11;%Channel Taps
 beta = 0.001; % step-size of the algorithm
@@ -60,12 +64,18 @@ c_MSE = inv(conj(FII))*alfa; % Equalizer coefficients
 % Plotting
 #figure(3);
 #subplot(121);
-#y_LMS=filter(c_LMS,1,Rk);
+y_LMS=filter(c_LMS,1,Rk);
+r_y_LMS = real(y_LMS);
+i_y_LMS = imag(y_LMS);
 #plot(y_LMS,'rx'); 
 #title('LMS Equalized Constellation');
 #grid on;
 #subplot(122);
 y_MSE=filter(c_MSE,1,Rk);
+r_y_MSE=real(y_MSE);
+i_y_MSE=imag(y_MSE);
 #plot(y_MSE((hTap+1)/2:end),'rx');
 #title('MSE Equalized Constellation');
 #grid on;
+#save ("-ascii", "./LMS_equalizer_octave/codes/lms.txt","r_y_MSE","i_y_MSE","r_y_LMS","i_y_LMS","r_a","i_a","r_Rk","i_Rk");
+save ("-ascii", "./LMS_equalizer_octave/codes/lms.txt","r_y_MSE","i_y_MSE","r_y_LMS","i_y_LMS");
