@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import random
 from scipy import signal
 from LMS_func import LMS
+import math
 
 #if using termux
 import subprocess
