@@ -10,7 +10,6 @@
 import numpy as np
 
 def LMS(Rk_noisy, Ak):
-#def LMS(Rk_noisy, Ak, Rk):
 	#Begin LMS algorithm
 	Ek=[]
 	hTap=11 #Channel Taps
