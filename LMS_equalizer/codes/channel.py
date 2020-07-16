@@ -11,6 +11,7 @@
 #Takes channel taps and path delay as input
 
 import numpy as np
+#from params import *
 
 #Channel gain
 def chan(pg,pd,N):
@@ -21,3 +22,13 @@ def chan(pg,pd,N):
 	         g[n]=g[n]+pg[k]*np.sinc(pd[k]-n)
 
 	return g
+
+#Noise scaling factor 
+#def noise_power(Rk,noise,SNR):
+#	P_s =np.var(Rk)  #Signal power
+#	P_n = np.var(noise)  #Noise power
+#
+#	# Defining noise scaling factor based on the desired SNR:
+#	noise_scaling_factor = np.sqrt((P_s/P_n)/10**(SNR/10)) 
+#	return  noise_scaling_factor
+##
