@@ -35,3 +35,6 @@ ts = (1/Rsym) / Nos;
 pg=np.array([0.9417 - 0.2214j ,-0.1596 - 0.0874j ,-0.0644 - 0.0163j, -0.0645 - 0.0387j, -0.0751 + 0.0467j])
 ##Channel path delays
 pd=np.array([0, 2.0000e-06 ,4.0000e-06, 6.0000e-06, 8.0000e-06])/ts
+
+##readsfrom tex file command File_object.readline(n)
+##pg=dlmread('path_gains.dat',',',[0,0,0,4])

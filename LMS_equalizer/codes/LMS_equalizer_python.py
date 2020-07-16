@@ -35,11 +35,6 @@ Aki = np.imag(Ak)
 for ii in range(L):
 	payload[ii] = a[random.randint(0,7)]
 
-
-
-##readsfrom tex file command File_object.readline(n)
-##pg=dlmread('path_gains.dat',',',[0,0,0,4])
-
 #Channel coefficients
 g = chan(pg,pd,N)
 
@@ -48,16 +43,9 @@ Rk=np.convolve(Ak,g,'same')
 
 #AWGN for pilot
 noise = (1/np.sqrt(2))*(np.random.randn(len(Rk)) + 1j*np.random.randn(len(Rk))) #Initial noise vector
-#P_s =np.var(Rk)  #Signal power
-#P_n = np.var(noise)  #Noise power
-#
-## Defining noise scaling factor based on the desired SNR:
-#noise_scaling_factor = np.sqrt((P_s/P_n)/10**(SNR/10)) 
 
 #Adding AWGN for pilot
 Rk_noisy=Rk+1/np.sqrt(SNR)*noise # Received signal
-#print(np.sqrt(SNR))
-#Rk_noisy=Rk+noise*noise_scaling_factor # Received signal
 print(len(Rk_noisy))
 
 #Received Pilot channel output I and Q
@@ -77,7 +65,6 @@ noise = (1/np.sqrt(2))*(np.random.randn(len(pay_Rk)) + 1j*np.random.randn(len(pa
 
 #Adding AWGN for payload
 pay_Rk_noisy=pay_Rk+1/np.sqrt(SNR)*noise # Received signal
-#pay_Rk_noisy=pay_Rk+noise*noise_scaling_factor # Received signal
 
 #Received payload channel output I and Q
 pay_rkr=np.real(pay_Rk)
