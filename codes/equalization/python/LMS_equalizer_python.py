@@ -113,8 +113,8 @@ plt.grid()
 plt.show()
 #
 ##if using termux
-plt.savefig('./figs/lms_test.pdf')
-plt.savefig('./figs/lms_test.eps')
-subprocess.run(shlex.split("termux-open ./figs/lms_test.pdf"))
+plt.savefig('./figs/lms_constellation.pdf')
+plt.savefig('./figs/lms_constellation.eps')
+subprocess.run(shlex.split("termux-open ./figs/lms_constellation.pdf"))
 #else
 #plt.show()

@@ -8,9 +8,8 @@
 #The LMS algrorithm
 
 import numpy as np
-from scipy import signal
 
-def LMS(Rk_noisy, Ak, Rk):
+def LMS(Rk_noisy, Ak):
 	#Begin LMS algorithm
 	Ek=[]
 	hTap=11 #Channel Taps
@@ -25,6 +24,7 @@ def LMS(Rk_noisy, Ak, Rk):
 		Ek[i] = Ak[i] - np.matmul(np.transpose(c_LMS),rk) #Error signal, we assume a known symbol sequence
 		c_LMS = np.add(c_LMS,beta*Ek[i]*(np.conj(rk))) # LMS update !
 
-	y_LMS=signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(Rk))
+#	y_LMS=signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(Rk))
 	#End LMS algorithm
-	return y_LMS
+#	return y_LMS
+	return c_LMS
