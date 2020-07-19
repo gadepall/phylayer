@@ -19,7 +19,7 @@ PropDelay = 100e-6 #Propagation delay
 
 #SOM
 SOMByte = 8 #Start of message in bytes
-SOMBitsLen = int(SOMByte*BYTELEN) #Start of message in bytes
+SOMBitsLen = int(SOMByte*BYTELEN)-1 #Start of message in bytes
 SOMDuration = SOMBitsLen*BitDuration #SOM duration
 SOMBits = bitstream(SOMBitsLen)
 
@@ -37,10 +37,11 @@ PayloadDuration = PayloadBitsLen*BitDuration #Payload duration
 
 #MAC 
 MACDuration  =1092e-6-RampTime-SOMDuration -19.5*BYTELEN*BitDuration #MAC  duration
-MACBitsLen = int(MACDuration//BitDuration)
+MACBitsLen = int(MACDuration//BitDuration)-1
 
 #Verifying frame duration
 #print((FrameDuration-(RampTime+PropDelay+SOMDuration+PayloadDuration+MACDuration+PilotDuration))//BitDuration)
 
 FrameLen = SOMBitsLen+PilotBitsLen+MACBitsLen+PayloadBitsLen
+FrameSymbLen = FrameLen//3
 TotBits = bitstream(nFrame*PayloadBitsLen)

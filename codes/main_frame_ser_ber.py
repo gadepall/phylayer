@@ -30,22 +30,24 @@ snr_db = np.linspace(0,snrlen,snrlen)
 snr = 6*10**(0.1*snr_db)
 
 
-AllFrames = np.zeros((nFrame,FrameLen))
+AllFramesBits = np.zeros((nFrame,FrameLen))
+AllFramesSymbols = np.zeros((nFrame,FrameSymbLen))+1j*np.zeros((nFrame,FrameSymbLen))
 
 for i in range(0,nFrame):
-	ThisFrame =  FrameGen(i)
-	AllFrames[i,:] =ThisFrame
-	symbols_comp = CompSymb(ThisFrame)
+	
+	AllFramesBits[i,:]=FrameGen(i)
+	AllFramesSymbols[i,:] = CompSymb(AllFramesBits[i,:])
 
 for k in range(0,snrlen):
+	for i in range(0,nFrame):
 	received = []
 	t=0
 	#Complex noise
-	noise_comp = np.random.normal(0,1,simlen)+1j*np.random.normal(0,1,simlen)
+	noise_comp = np.random.normal(0,1,FrameLen)+1j*np.random.normal(0,1,FrameLen)
 	#Generating complex received symbols
 	y_comp = np.sqrt(snr[k])*symbols_comp+noise_comp
 	brx = []
-	for i in range(simlen):
+	for i in range(FrameLen):
 		srx_comp = decode(y_comp[i]) #Received Symbol
 		brx.append(detect(srx_comp))  #Received Bits
 		if symbols_comp[i]==srx_comp:
@@ -59,6 +61,7 @@ for k in range(0,snrlen):
 	bit_diff = bits-brx
 	ber.append(1-len(np.where(bit_diff == 0)[0])/bitsimlen)
 
+#print(AllFramesSymbols[0,:])
 #print(AllFrames[0,:])
 #print(symbols_comp[1])
 ##Bitstream size
