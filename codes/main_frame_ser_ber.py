@@ -1,9 +1,5 @@
 #Code by GVV Sharma
-#July 10, 2020
-#Revised
-#July 13, 2020
-#Revised
-#July 17, 2020
+#July 19, 2020
 #Released under GNU/GPL
 #SER and BER simulation for 8-PSK 
 #using complex symbols
@@ -18,9 +14,9 @@ import shlex
 #end if
 
 #Importing custom functions
-from EightPSK.working_complex.mod import *
-from EightPSK.working_complex.demod import *
-from EightPSK.working_complex.mats import *
+from EightPSK.mod import *
+from EightPSK.demod import *
+from EightPSK.mats import *
 
 
 #SNR range
