@@ -29,23 +29,30 @@ snrlen=10
 snr_db = np.linspace(0,snrlen,snrlen)
 snr = 6*10**(0.1*snr_db)
 
-
+#Initializing all Frames in Bits and 8PSK Symbols
 AllFramesBits = np.zeros((nFrame,FrameLen))
 AllFramesSymbols = np.zeros((nFrame,FrameSymbLen))+1j*np.zeros((nFrame,FrameSymbLen))
 
+#Generating all the Frames in Bits and 8PSK Symbols
 for i in range(0,nFrame):
 	
 	AllFramesBits[i,:]=FrameGen(i)
 	AllFramesSymbols[i,:] = CompSymb(AllFramesBits[i,:])
 
+#SNR Loop for computing the overall SER and BER
 for k in range(0,snrlen):
+#Computing the SER and BER per frame
 	for i in range(0,nFrame):
+		noise_comp = np.random.normal(0,1,FrameLen)+1j*np.random.normal(0,1,FrameLen) #AWGN for the frame
+		FrameRxSymb = AllFramesSymbols[i,:] +1/np.sqrt(snr[k])*noise_comp #Received frame with noise
+		FrameMACRxSymb = FrameRxSymb[FrameMACBegin:FramePayloadBegin] #MAC part of the received frame
+		FramePayloadRxSymb = FrameRxSymb[FramePayloadBegin:FrameSymbLen] #Payload part of the received frame
+		#MAC Detection
 	received = []
 	t=0
 	#Complex noise
-	noise_comp = np.random.normal(0,1,FrameLen)+1j*np.random.normal(0,1,FrameLen)
 	#Generating complex received symbols
-	y_comp = np.sqrt(snr[k])*symbols_comp+noise_comp
+	
 	brx = []
 	for i in range(FrameLen):
 		srx_comp = decode(y_comp[i]) #Received Symbol
