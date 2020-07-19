@@ -39,3 +39,9 @@ def symb(bits):
 		except IndexError:
 			return symbol
 
+#Converts bitstream to 8-PSK complex symbol stream
+def CompSymb(bits):
+	symbols_lst = symb(bits)
+	symbols = np.array(symbols_lst).T #Symbol vectors
+	symbols_comp = symbols[0,:]+1j*symbols[1,:] #Equivalent complex symbols
+	return symbols_comp

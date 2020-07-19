@@ -42,5 +42,5 @@ MACBitsLen = int(MACDuration//BitDuration)
 #Verifying frame duration
 #print((FrameDuration-(RampTime+PropDelay+SOMDuration+PayloadDuration+MACDuration+PilotDuration))//BitDuration)
 
-
+FrameLen = SOMBitsLen+PilotBitsLen+MACBitsLen+PayloadBitsLen
 TotBits = bitstream(nFrame*PayloadBitsLen)
