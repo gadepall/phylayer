@@ -1,7 +1,8 @@
 #Code by GVV Sharma
 #July 19, 2020
 #Released under GNU/GPL
-#SER and BER simulation for 8-PSK MAC Bits
+#SER and BER simulation for 8-PSK 
+#using complex symbols
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -51,6 +52,7 @@ for k in range(0,snrlen):
 	MACFrameCorrect = 0
 	for i in range(0,nFrame):
 		noise_comp = np.random.normal(0,1,FrameSymbLen)+1j*np.random.normal(0,1,FrameSymbLen) #AWGN for the frame
+#		print(FrameLen)
 		FrameTxSymb = AllFramesSymbols[i,:]  #Transmitted frame 
 		FrameRxSymb = FrameTxSymb +1/np.sqrt(snr[k])*noise_comp #Received frame with noise
 
@@ -65,15 +67,75 @@ for k in range(0,snrlen):
 			if MACSymbRx!=FrameMACTxSymb[m]:
 				FrameMACSymbErr +=1; #Counting symbol errors
 
-		MACTxBits = AllFramesBits[i,3*FrameMACBegin:3*FramePayloadBegin]  #Transmitted MAC frame bits
-		MACBitsRxTemp=np.array(MACBitsRx).flatten() #Received MAC Frame Bits
-		MACFrameErrBits = MACTxBits-MACBitsRxTemp 
-		MACFrameCorrect += len(np.where(MACFrameErrBits == 0)[0]) #Checking for number of correct bits
-	#Evaluating SER and BER
-	MACSERSim.append(FrameMACSymbErr/(MACSymbsLen*nFrame)) #Simulated SER
-	MACSERTheory.append(2*qfunc((np.sqrt(snr[k]))*np.sin(np.pi/8))) #Analytical SER
-	MACBER.append(1-MACFrameCorrect/(nFrame*MACBitsLen)) #Simulatd BER
+		MACTxBits = AllFramesBits[i,3*FrameMACBegin:3*FramePayloadBegin]  #Transmitted frame bits
+		MACBitsRxTemp=np.array(MACBitsRx).flatten()
+#		if i==0:
+#			print(i,MACBitsRxTemp)
+#		print(MACBitsRxTemp.size)
+#		print(MACTxBits.size,MACBitsRxTemp.size)
+		MACFrameErrBits = MACTxBits-MACBitsRxTemp
+#		print(i,MACFrameErr.size)
+#
+#		MACFrameBER = 1-len(np.where(MACFrameErr == 0)[0])/MACBitsLen
+		MACFrameCorrect += len(np.where(MACFrameErrBits == 0)[0])
+	#Evaluating SER
+	MACSERSim.append(FrameMACSymbErr/(MACSymbsLen*nFrame))
+	MACSERTheory.append(2*qfunc((np.sqrt(snr[k]))*np.sin(np.pi/8)))
+	MACBER.append(1-MACFrameCorrect/(nFrame*MACBitsLen))
+	#Received bitstream
+#	brx=np.array(brx).flatten()
+	#Evaluating BER
+#	bit_diff = bits-brx
+#	MACBER.append(1-len(np.where(bit_diff == 0)[0])/bitsimlen)
 
+#print(AllFramesSymbols[0,:])
+#print(AllFrames[0,:])
+#print(symbols_comp[1])
+##Bitstream size
+#bitsimlen = 99999
+#
+##Symbol stream size
+#simlen = bitsimlen //3
+#
+##Generating bitstream
+#bits = bitstream(bitsimlen)
+#
+##Converting bits to Gray coded 8-PSK symbols
+##Intermediate steps  required for converting list to
+##numpy matrix
+#symbols_lst = symb(bits)
+#symbols = np.array(symbols_lst).T #Symbol vectors
+#symbols_comp = symbols[0,:]+1j*symbols[1,:] #Equivalent complex symbols
+#
+#ser =[]
+#ser_anal=[]
+#ber = []
+#
+##SNRloop
+#for k in range(0,snrlen):
+#	received = []
+#	t=0
+#	#Complex noise
+#	noise_comp = np.random.normal(0,1,simlen)+1j*np.random.normal(0,1,simlen)
+#	#Generating complex received symbols
+#	y_comp = np.sqrt(snr[k])*symbols_comp+noise_comp
+#	brx = []
+#	for i in range(simlen):
+#		srx_comp = decode(y_comp[i]) #Received Symbol
+#		brx.append(detect(srx_comp))  #Received Bits
+#		if symbols_comp[i]==srx_comp:
+#			t+=1; #Counting symbol errors
+#	#Evaluating SER
+#	ser.append(1-(t/33334.0))
+#	ser_anal.append(2*qfunc((np.sqrt(snr[k]))*np.sin(np.pi/8)))
+#	#Received bitstream
+#	brx=np.array(brx).flatten()
+#	#Evaluating BER
+#	bit_diff = bits-brx
+#	ber.append(1-len(np.where(bit_diff == 0)[0])/bitsimlen)
+#
+#
+#
 #Plots
 plt.semilogy(snr_db,MACSERTheory,label='MAC SER Analysis')
 plt.semilogy(snr_db,MACSERSim,'o',label='MAC SER Sim')

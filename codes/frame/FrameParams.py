@@ -8,7 +8,8 @@
 from  EightPSK.mod import bitstream
 
 
-nFrame =  62
+#nFrame =  62
+nFrame =  620
 BYTELEN= 8 # 1 byte = 8 bits
 FrameDuration = 2e-3 #length of frame in seconds
 BitDuration = 2.7e-6 #bit duration in seconds
