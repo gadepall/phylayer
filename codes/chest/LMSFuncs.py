@@ -24,7 +24,4 @@ def LMS(Rk_noisy, Ak):
 		Ek[i] = Ak[i] - np.matmul(np.transpose(c_LMS),rk) #Error signal, we assume a known symbol sequence
 		c_LMS = np.add(c_LMS,beta*Ek[i]*(np.conj(rk))) # LMS update !
 
-#	y_LMS=signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(Rk))
-	#End LMS algorithm
-#	return y_LMS
-	return c_LMS
+	return c_LMS #returning estimated channel coefficients
