@@ -39,34 +39,42 @@ for i in range(0,nFrame):
 	AllFramesBits[i,:]=FrameGen(i)
 	AllFramesSymbols[i,:] = CompSymb(AllFramesBits[i,:])
 
+#print(AllFramesSymbols.shape)
+
+ser =[]
+ser_anal=[]
+ber = []
+
 #SNR Loop for computing the overall SER and BER
 for k in range(0,snrlen):
 #Computing the SER and BER per frame
+	MACBitsDetect = []
+	t = 0
 	for i in range(0,nFrame):
-		noise_comp = np.random.normal(0,1,FrameLen)+1j*np.random.normal(0,1,FrameLen) #AWGN for the frame
-		FrameRxSymb = AllFramesSymbols[i,:] +1/np.sqrt(snr[k])*noise_comp #Received frame with noise
+		noise_comp = np.random.normal(0,1,FrameSymbLen)+1j*np.random.normal(0,1,FrameSymbLen) #AWGN for the frame
+#		print(FrameLen)
+		FrameTxSymb = AllFramesSymbols[i,:]  #Transmitted frame 
+		FrameRxSymb = FrameTxSymb +1/np.sqrt(snr[k])*noise_comp #Received frame with noise
+
+		FrameMACTxSymb = FrameTxSymb[FrameMACBegin:FramePayloadBegin] #MAC part of the transmittedframe
 		FrameMACRxSymb = FrameRxSymb[FrameMACBegin:FramePayloadBegin] #MAC part of the received frame
 		FramePayloadRxSymb = FrameRxSymb[FramePayloadBegin:FrameSymbLen] #Payload part of the received frame
 		#MAC Detection
-	received = []
-	t=0
-	#Complex noise
-	#Generating complex received symbols
+		for m in range(MACSymbsLen):
+			MACSymbRx = decode(FrameMACRxSymb[m]) #Demodulated MAC Symbol
+			MACBitsDetect.append(detect(MACSymbRx))  #Demodulated MAC bits per symbol
+			if MACSymbRx==FrameMACTxSymb[m]:
+				t+=1; #Counting symbol errors
 	
-	brx = []
-	for i in range(FrameLen):
-		srx_comp = decode(y_comp[i]) #Received Symbol
-		brx.append(detect(srx_comp))  #Received Bits
-		if symbols_comp[i]==srx_comp:
-			t+=1; #Counting symbol errors
 	#Evaluating SER
-	ser.append(1-(t/33334.0))
+	ser.append(1-(t/(MACSymbsLen*nFrame)))
+#	ser.append(1-(t/33334.0))
 	ser_anal.append(2*qfunc((np.sqrt(snr[k]))*np.sin(np.pi/8)))
 	#Received bitstream
-	brx=np.array(brx).flatten()
+#	brx=np.array(brx).flatten()
 	#Evaluating BER
-	bit_diff = bits-brx
-	ber.append(1-len(np.where(bit_diff == 0)[0])/bitsimlen)
+#	bit_diff = bits-brx
+#	ber.append(1-len(np.where(bit_diff == 0)[0])/bitsimlen)
 
 #print(AllFramesSymbols[0,:])
 #print(AllFrames[0,:])
@@ -116,16 +124,16 @@ for k in range(0,snrlen):
 #
 #
 #
-##Plots
-#plt.semilogy(snr_db,ser_anal,label='SER Analysis')
-#plt.semilogy(snr_db,ser,'o',label='SER Sim')
+#Plots
+plt.semilogy(snr_db,ser_anal,label='SER Analysis')
+plt.semilogy(snr_db,ser,'o',label='SER Sim')
 #plt.semilogy(snr_db,ber,label='BER Sim')
-#plt.xlabel('SNR$\\left(\\frac{E_b}{N_0}\\right)$')
-#plt.ylabel('$P_e$')
-#plt.legend()
-#plt.grid()
-#
-##if using termux
-#plt.savefig('./figs/ser_ber.pdf')
-#plt.savefig('./figs/ser_ber.eps')
-#subprocess.run(shlex.split('termux-open ./figs/ser_ber.pdf'))
+plt.xlabel('SNR$\\left(\\frac{E_b}{N_0}\\right)$')
+plt.ylabel('$P_e$')
+plt.legend()
+plt.grid()
+
+#if using termux
+plt.savefig('./figs/mac_ser_ber.pdf')
+plt.savefig('./figs/mac_ser_ber.eps')
+subprocess.run(shlex.split('termux-open ./figs/mac_ser_ber.pdf'))

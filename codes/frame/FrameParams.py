@@ -35,7 +35,7 @@ PilotSymbsLen = PilotBitsLen//3
 PayloadByte = 36 # Size of payload in bytes
 PayloadBitsLen = int(PayloadByte*BYTELEN) # Size of payload in bytes
 PayloadDuration = PayloadBitsLen*BitDuration #Payload duration
-PayloadSymbsLen = PayloadBitslen//3
+PayloadSymbsLen = PayloadBitsLen//3
 
 #MAC 
 MACDuration  =1092e-6-RampTime-SOMDuration -19.5*BYTELEN*BitDuration #MAC  duration
