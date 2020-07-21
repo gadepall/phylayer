@@ -3,8 +3,12 @@
 #Released under GNU/GPL
 #SER and BER simulation for 8-PSK MAC Bits
 
+#Importing builtin functions
 import numpy as np
 import matplotlib.pyplot as plt
+import random
+import math
+from scipy import signal
 
 
 #if using termux
@@ -18,6 +22,9 @@ from EightPSK.demod import *
 from EightPSK.mats import *
 from frame.frametx import *
 from frame.FrameParams import *
+from chest.LMSFuncs import LMS
+from chest.ChannelGain import chan
+from chest.ChannelParams import *
 
 
 #SNR range

@@ -44,7 +44,7 @@ g = chan(PathGains,PathDelays,ChannelFilterLen)
 
 #Channel response for pilot
 Rk=np.convolve(Ak,g,'same')
-print(len(Rk),len(Ak),len(g))
+
 #AWGN for pilot
 noise = (1/np.sqrt(2))*(np.random.randn(len(Rk)) + 1j*np.random.randn(len(Rk))) #Initial noise vector
 
