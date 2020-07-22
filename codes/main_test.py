@@ -54,7 +54,9 @@ for k in range(0,snrlen):
 	FrameMACSymbErr = 0
 	MACFrameCorrect = 0
 #For Collecting Pilot Frames
-	PilotFrames = []
+#	PilotFramesTx = []
+	PilotFramesRx = []
+#	PilotFrames = []
 	#LMS Loop
 	for i in range(0,pFrame):
 		noise_comp = (np.random.normal(0,1,FrameSymbLen)+1j*np.random.normal(0,1,FrameSymbLen)) #AWGN for the frame
@@ -63,9 +65,17 @@ for k in range(0,snrlen):
 		FrameChanResp=np.convolve(FrameTxSymb,ChanGain,'same')
 
 		FrameRxSymb = FrameChanResp +1/np.sqrt(snr[k])*noise_comp #Received frame with fading and noise
-		PilotFrames.append(FrameRxSymb)  #Demodulated MAC bits per symbol
+#		PilotFramesTx.append(FrameTxSymb)  #Transmitted Pilot Frames
+		PilotFramesRx.append(FrameRxSymb)  #Received Pilot Frames
+
+	PilotFramesRx = np.array(PilotFramesRx)
+	#LMS estimation
+#	c_LMS = LMS(PilotFrames, Ak)
+
+	print(PilotFramesRx.size,FrameSymbLen*pFrame)
 		
-	for i in range(pframe,nFrame):
+#	for i in range(pframe,nFrame):
+	for i in range(0,nFrame):
 		noise_comp = (np.random.normal(0,1,FrameSymbLen)+1j*np.random.normal(0,1,FrameSymbLen)) #AWGN for the frame
 		FrameTxSymb = AllFramesSymbols[i,:]  #Transmitted frame 
 		#Channel response for pilot
