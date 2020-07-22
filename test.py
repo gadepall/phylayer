@@ -1,6 +1,4 @@
 import numpy as np
 
-x = np.array([1,2,3,4])
-y = np.array([3,4,5,6])
-#print(np.convolve(x,y))
-print(np.convolve(x,y,'same'))
+for i in range(3,5):
+	print (i)

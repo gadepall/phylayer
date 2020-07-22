@@ -53,9 +53,20 @@ for k in range(0,snrlen):
 #Computing the SER and BER per frame
 	FrameMACSymbErr = 0
 	MACFrameCorrect = 0
-	for i in range(0,nFrame):
+#For Collecting Pilot Frames
+	PilotFrames = []
+	#LMS Loop
+	for i in range(0,pFrame):
 		noise_comp = (np.random.normal(0,1,FrameSymbLen)+1j*np.random.normal(0,1,FrameSymbLen)) #AWGN for the frame
-#		print(FrameLen)
+		FrameTxSymb = AllFramesSymbols[i,:]  #Transmitted frame 
+		#Channel response for pilot
+		FrameChanResp=np.convolve(FrameTxSymb,ChanGain,'same')
+
+		FrameRxSymb = FrameChanResp +1/np.sqrt(snr[k])*noise_comp #Received frame with fading and noise
+		PilotFrames.append(FrameRxSymb)  #Demodulated MAC bits per symbol
+		
+	for i in range(pframe,nFrame):
+		noise_comp = (np.random.normal(0,1,FrameSymbLen)+1j*np.random.normal(0,1,FrameSymbLen)) #AWGN for the frame
 		FrameTxSymb = AllFramesSymbols[i,:]  #Transmitted frame 
 		#Channel response for pilot
 		FrameChanResp=np.convolve(FrameTxSymb,ChanGain,'same')
