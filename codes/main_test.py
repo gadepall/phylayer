@@ -6,6 +6,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import signal
 
 
 #if using termux
@@ -19,7 +20,7 @@ from EightPSK.demod import *
 from EightPSK.mats import *
 from frame.frametx import *
 from frame.FrameParams import *
-from chest.LMSFuncs import LMS
+from chest.LMSFuncs import LMSPilot
 from chest.ChannelGain import chan
 from chest.ChannelParams import *
 
@@ -54,27 +55,29 @@ for k in range(0,snrlen):
 	FrameMACSymbErr = 0
 	MACFrameCorrect = 0
 #For Collecting Pilot Frames
-#	PilotFramesTx = []
+	PilotFramesTx = []
 	PilotFramesRx = []
 #	PilotFrames = []
 	#LMS Loop
 	for i in range(0,pFrame):
 		noise_comp = (np.random.normal(0,1,FrameSymbLen)+1j*np.random.normal(0,1,FrameSymbLen)) #AWGN for the frame
 		FrameTxSymb = AllFramesSymbols[i,:]  #Transmitted frame 
+		FramePilotTxSymb = FrameTxSymb[FramePilotBegin:FrameMACBegin] #MAC part of the transmittedframe
 		#Channel response for pilot
 		FrameChanResp=np.convolve(FrameTxSymb,ChanGain,'same')
 
 		FrameRxSymb = FrameChanResp +1/np.sqrt(snr[k])*noise_comp #Received frame with fading and noise
+		FramePilotRxSymb = FrameRxSymb[FramePilotBegin:FrameMACBegin] #MAC part of the transmittedframe
 #		PilotFramesTx.append(FrameTxSymb)  #Transmitted Pilot Frames
-		PilotFramesRx.append(FrameRxSymb)  #Received Pilot Frames
+		PilotFramesTx.append(FramePilotTxSymb)  #Received Pilot Frames
+		PilotFramesRx.append(FramePilotRxSymb)  #Received Pilot Frames
 
-	PilotFramesRx = np.array(PilotFramesRx)
+	PilotFramesTx = np.array(PilotFramesTx).flatten()
+	PilotFramesRx = np.array(PilotFramesRx).flatten()
 	#LMS estimation
-#	c_LMS = LMS(PilotFrames, Ak)
+	c_LMS = LMSPilot(PilotFramesRx,PilotFramesTx)
+#	print(c_LMS)
 
-	print(PilotFramesRx.size,FrameSymbLen*pFrame)
-		
-#	for i in range(pframe,nFrame):
 	for i in range(0,nFrame):
 		noise_comp = (np.random.normal(0,1,FrameSymbLen)+1j*np.random.normal(0,1,FrameSymbLen)) #AWGN for the frame
 		FrameTxSymb = AllFramesSymbols[i,:]  #Transmitted frame 
@@ -87,6 +90,9 @@ for k in range(0,snrlen):
 		FrameMACTxSymb = FrameTxSymb[FrameMACBegin:FramePayloadBegin] #MAC part of the transmittedframe
 		FrameMACRxSymb = FrameRxSymb[FrameMACBegin:FramePayloadBegin] #MAC part of the received frame
 		FramePayloadRxSymb = FrameRxSymb[FramePayloadBegin:FrameSymbLen] #Payload part of the received frame
+		#Equalizing MAC
+#		y_LMS_pilot=signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(Rk_noisy))
+		FrameMACRxSymb = signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(FrameMACRxSymb))
 		#MAC Detection
 		MACBitsRx = []
 		for m in range(MACSymbsLen):

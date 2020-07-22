@@ -25,6 +25,11 @@ import subprocess
 import shlex
 #end if
 
+SNRdB = 18 #Signal to noise ratio in dB
+P = 10000
+L = 255//3 #payload
+SNR = 10**(SNRdB/10)
+a=np.array([1+0j,1/np.sqrt(2)+1j*1/np.sqrt(2) ,1j ,-1/np.sqrt(2)+1j*1/np.sqrt(2), -1 ,-1/np.sqrt(2)-1j*1/np.sqrt(2), -1j ,1/np.sqrt(2)-1j*1/np.sqrt(2)])
 Ak=np.zeros(P)+1j*np.zeros(P)
 payload=np.zeros(L)+1j*np.zeros(L)
 

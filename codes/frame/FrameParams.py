@@ -8,7 +8,7 @@
 from  EightPSK.mod import bitstream
 
 
-pFrame =  62 #Pilot Frames
+pFrame =  186 #Pilot Frames
 nFrame =  620 #Total Frames
 BYTELEN= 8 # 1 byte = 8 bits
 FrameDuration = 2e-3 #length of frame in seconds
@@ -52,6 +52,8 @@ FrameLen = SOMBitsLen+PilotBitsLen+MACBitsLen+PayloadBitsLen
 FrameSymbLen = FrameLen//3
 #Generating the Payload Bits for all frames of interest
 TotBits = bitstream(nFrame*PayloadBitsLen)
+#Generating the Pilot Bits 
+#PilotBitsGen = bitstream(PilotBitsLen)
 #Indices for Frame MAC, SOM, etc..
 FrameSOMBegin = 0 #Beginning of SOM
 FramePilotBegin = FrameSOMBegin+ SOMSymbsLen #Beginning of Pilot
