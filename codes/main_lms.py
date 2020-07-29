@@ -16,6 +16,7 @@ import math
 from scipy import signal
 
 #Local
+from EightPSK.demod import *
 from chest.LMSFuncs import LMS
 from chest.ChannelGain import chan
 from chest.ChannelParams import *
@@ -27,7 +28,8 @@ import shlex
 
 SNRdB = 18 #Signal to noise ratio in dB
 P = 10000
-L = 255//3 #payload
+#L = 255//3 #payload
+L = 99999//3 #payload
 SNR = 10**(SNRdB/10)
 a=np.array([1+0j,1/np.sqrt(2)+1j*1/np.sqrt(2) ,1j ,-1/np.sqrt(2)+1j*1/np.sqrt(2), -1 ,-1/np.sqrt(2)-1j*1/np.sqrt(2), -1j ,1/np.sqrt(2)-1j*1/np.sqrt(2)])
 Ak=np.zeros(P)+1j*np.zeros(P)
@@ -97,10 +99,28 @@ Lr=np.real(y_LMS_pilot)
 Li=np.imag(y_LMS_pilot)
 
 #Equalizing payload
+y_LMS_pilot=signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(Rk_noisy))
 y_LMS_payload=signal.lfilter(np.ndarray.flatten(c_LMS),1,np.ndarray.flatten(pay_Rk_noisy))
 
 pay_Lr=np.real(y_LMS_payload)
 pay_Li=np.imag(y_LMS_payload)
+
+FrameMACSymbErr = 0
+for m in range(P):
+#for m in range(L):
+	MACSymbRx = decode(y_LMS_pilot[m]) #Demodulated MAC Symbol
+#	MACSymbRx = decode(y_LMS_payload[m]) #Demodulated MAC Symbol
+#	MACBitsRx.append(detect(MACSymbRx))  #Demodulated MAC bits per symbol
+	if MACSymbRx!=Ak[m]:
+#	if MACSymbRx!=payload[m]:
+		FrameMACSymbErr +=1; #Counting symbol errors
+
+MACSERSim = FrameMACSymbErr/P
+#MACSERSim = FrameMACSymbErr/L
+MACSERTheory = 2*qfunc((np.sqrt(SNR))*np.sin(np.pi/8))
+print(MACSERSim, MACSERTheory)
+#MACSERSim.append(FrameMACSymbErr/(MACSymbsLen*nFrame))
+#MACSERTheory.append(2*qfunc((np.sqrt(snr[k]))*np.sin(np.pi/8)))
 
 
 #Following plots related to  payload
