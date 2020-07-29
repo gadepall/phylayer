@@ -14,7 +14,7 @@ import shlex
 
 
 #Extracting Data
-x = np.loadtxt('mmse_ser.dat',dtype='double')
+x = np.loadtxt('./codes/MMSE/mmse_ser.dat',dtype='double')
 EbN0dB = x[0,:]
 SER_MMSE = x[1,:]
 theory_bpsk= x[2,:]
@@ -23,10 +23,10 @@ theoreticalSER = x[3,:]
 
 ## Plots
 plt.semilogy(EbN0dB,SER_MMSE,'m-*');
+plt.semilogy(EbN0dB,theoreticalSER,'r-*');
 #plt.semilogy(EbN0dB,SER_MMSE,'m-*');
 #hold on;
 
-# semilogy(EbN0dB,theoreticalSER,'r-*');
 # hold on;
 # 
 # semilogy(EbN0dB,theory_bpsk,'b-*');
