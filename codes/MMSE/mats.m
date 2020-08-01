@@ -9,7 +9,7 @@
 s = zeros(8,2);
 s_comp = zeros(8,1);
 for i =1:8
-	s(i,:) = [cos(i*2*pi/8) sin(i*2*pi/8)]; #vector
+	s(i,:) = [cos((i-1)*2*pi/8) sin((i-1)*2*pi/8)]; #vector
 	s_comp(i) = s(i,1)+1j*s(i,2); #equivalent complex number
 end
 #
@@ -35,8 +35,3 @@ gray(6,:) = [1 1 1];
 gray(7,:) = [1 0 1];
 gray(8,:) = [1 0 0];
 #
-#gray
-#
-##Q-function
-#def qfunc(x):
-#	return 0.5*special.erfc(x/sqrt(2
