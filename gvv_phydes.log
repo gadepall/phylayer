@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.8.15)  20 AUG 2020 13:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=latex 2020.8.15)  25 AUG 2020 18:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1866,7 +1866,7 @@ syc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 \gnumericColB=\skip89
-)) (./chapters/framing.tex (./figs/frame.tex))
+)) (./chapters/framing.tex (./figs/newfigs/frame.tex))
 (./chapters/ee18btech11012.tex (./figs/8psk/8psk_constellation.tex)
 (./figs/8psk/ee18btech11012_1.tex
 \gnumericColC=\skip90
@@ -1898,7 +1898,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 321.
  ) 
 Here is how much of TeX's memory you used:
  39665 strings out of 480609
- 917885 string characters out of 5892832
+ 917917 string characters out of 5892832
  1366519 words of memory out of 5000000
  54747 multiletter control sequences out of 15000+600000
  588530 words of font info for 148 fonts, out of 8000000 for 9000

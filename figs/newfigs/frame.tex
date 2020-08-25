@@ -1,0 +1,38 @@
+
+\begin{tikzpicture}
+%[scale=2,>=stealth,point/.style={draw,circle,fill = black,inner sep=0.5pt},]
+
+\def\a{3}
+%\node (O) at (0,0)[point,label=above right:$A$] {};
+\node (O) at (0,0)[] {};
+\node (F) at (7*\a,0)[] {};
+\node (A) at (\a,0)[] {};
+\node (B) at (2*\a,0)[] {};
+\node (C) at (3*\a,0)[] {};
+\node (D) at (4*\a,0)[] {};
+\node (E) at (6*\a,0)[] {};
+\node (G) at (0,\a)[] {};
+\node (H) at (0,-1)[] {};
+\node (I) at (0,4)[] {};
+
+\node [align=center] at ($(O)!0.5!(A)+0.5*(G)$) {Ramp Up \\ (116 $\mu$s)};
+\node [align=center] at ($(B)!0.5!(A)+0.5*(G)$) {SOM\\8 bytes};
+\node [align=center] at ($(B)!0.5!(C)+0.5*(G)$) {Training \\ Sequence\\19.5 bytes};
+\node [align=center] at ($(D)!0.5!(C)+0.5*(G)$) {MAC\\overheads};
+\node [align=center] at ($(D)!0.5!(E)+0.5*(G)$) {Pay Load\\ 36 bytes};
+\node [align=center] at ($(F)!0.5!(E)+0.5*(G)$) {Prop Delay\\ (100 $\mu$s)};
+
+
+\draw (O) -- (F)-- ($(F)+(G)$)-- ($(O)+(G)$)--(O);
+\draw (A) -- ($(A)+(G)$);
+\draw (B) -- ($(B)+(G)$);
+\draw (C) -- ($(C)+(G)$);
+\draw (D) -- ($(D)+(G)$);
+\draw (E) -- ($(E)+(G)$);
+\draw (F) -- ($(F)+(G)$);
+\draw[<->,thick] (H)--($(D)+(H)$) node[align = center] at (1.5*\a,-1.5) {1092 $\mu$s};
+\draw[<->,thick] ($(O)+(I)$)--($(F)+(I)$) node[align = center] at (3.5*\a,4.5) {1 Slot = 2ms};
+
+
+
+\end{tikzpicture}
