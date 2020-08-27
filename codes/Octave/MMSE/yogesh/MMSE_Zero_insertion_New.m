@@ -112,18 +112,5 @@ EbN0=10.^(EbN0dB/10);
  theoreticalSER=(1/kk)*(erfc(sqrt(EbN0*log2(ConstellationSize))*sin(pi/ConstellationSize)));
  theory_bpsk = 1.0/2* erfc(sqrt(EbN0));
 
-%% Plots
-semilogy(EbN0dB,(SER_MMSE),'m-*');
-hold on;
+ save("-ascii","MMSE_py.dat","EbN0dB","SER_MMSE");
 
-% semilogy(EbN0dB,theoreticalSER,'r-*');
-% hold on;
-% 
-% semilogy(EbN0dB,theory_bpsk,'b-*');
-% hold on;
-
-legend('MMSE','TheoryBER','TheoryBPSK','location','best');
-xlabel('$\frac{E_s}{N_0}$(dB)','Interpreter','latex');
-ylabel('$P_e$','Interpreter','latex');
-%saveas(gcf,'Equalizers','eps');
-grid on;
