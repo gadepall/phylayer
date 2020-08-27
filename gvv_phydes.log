@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=pdflatex 2020.8.26)  27 AUG 2020 07:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=pdflatex 2020.8.26)  27 AUG 2020 12:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1883,9 +1883,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 (./figs/8psk/ee18btech11012_decision.tex) (./figs/8psk/ee18btech11012_2.tex
 \gnumericColD=\skip91
 )
+
+LaTeX Warning: File `./figs/8psk/ee18btech11012.eps' not found on input line 12
+4.
+
 Package epstopdf Info: Source file: <./figs/8psk/ee18btech11012.eps>
-(epstopdf)                    date: 2020-08-20 12:36:41
-(epstopdf)                    size: 29381 bytes
 (epstopdf)             Output file: <./figs/8psk/ee18btech11012-eps-converted-t
 o.pdf>
 (epstopdf)                    date: 2020-08-27 06:58:02
@@ -1901,7 +1903,6 @@ File: ./figs/8psk/ee18btech11012-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./figs/8psk/ee18btech11012-eps-converted-to.pdf  used 
 on input line 124.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
-
 [2]) (./chapters/MMSE/estimation.tex (./tables/MMSE/ChannelParams.tex
 Overfull \hbox (6.0pt too wide) in paragraph at lines 152--152
 []|\OT1/txr/m/n/12 x| 
@@ -1919,17 +1920,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 316.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 316.
 Package rerunfilecheck Info: File `gvv_phydes.out' has not changed.
 (rerunfilecheck)             Checksum: A9CE35BE899F2137A3E1A1C910E2FF63;355.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 316.
  ) 
 Here is how much of TeX's memory you used:
- 40139 strings out of 480608
- 925557 string characters out of 5892806
- 1347018 words of memory out of 5000000
- 55147 multiletter control sequences out of 15000+600000
+ 40167 strings out of 480608
+ 926117 string characters out of 5892806
+ 1347019 words of memory out of 5000000
+ 55161 multiletter control sequences out of 15000+600000
  601156 words of font info for 168 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  60i,25n,91p,502b,919s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1945,10 +1942,10 @@ w/times/utmb8a.pfb></data/data/com.termux/files/usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmbi8a.pfb></data/data/com.termux/files/usr/share/texlive/
 texmf-dist/fonts/type1/urw/times/utmr8a.pfb></data/data/com.termux/files/usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gvv_phydes.pdf (3 pages, 91273 bytes).
+Output written on gvv_phydes.pdf (3 pages, 91415 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
+ 196 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
  170 words of extra memory for PDF output out of 10000 (max. 10000000)
 
