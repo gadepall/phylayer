@@ -1,0 +1,20 @@
+The pilot symbols are used for channel estimation.
+\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
+
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\numberwithin{table}{enumi}
+
+\item $P=10$ pilot symbols are used at a time for channel estimation.  The channel filter has length $L=5$.  See Table \label{table:ChannelParams} for a details.
+The consequent model is
+\begin{align}
+\vec{y}_p = \vec{x}_p*\vec{h}+ \vec{n}_p
+\end{align}
+\begin{table}[!h]
+\centering
+\input{./tables/MMSE/ChannelParams.tex}
+\caption{}
+\label{table:ChannelParams}
+\end{table}
+\item 
+\end{enumerate}
