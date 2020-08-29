@@ -1,0 +1,32 @@
+\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
+
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\numberwithin{table}{enumi}
+
+\item From Fig. \ref{fig:frame}, the number of payload symbols per frame is $N=\frac{36 \times 8}{3} = 96$.
+The received symbols are then given by 
+\begin{align}
+\vec{y}_n = \vec{x}_n*\vec{h}+ \vec{n}_n, \quad n = 1, \dots, N
+\label{eq:mmse_payload_chan_mod}
+\end{align}
+%\begin{table}[!h]
+%\centering
+%\input{./tables/MMSE/ChannelParams.tex}
+%\caption{}
+%\label{table:ChannelParams}
+%\end{table}
+In \label{eq:mmse_payload_chan_mod}, $\vec{h}, \vec{y}$ are known and we wish to estimate $\vec{x}$.
+
+\item The MMSE estimate is obtained as
+\begin{align}
+\vec{x} = \vec{W}^T\vec{y}
+\end{align}
+where 
+\begin{align}
+\vec{W} = \brak{\vec{H}^*\vec{H}+\frac{ \vec{I}}{SNR}}^{-1}\vec{H}^{*}
+\\
+\vec{H} = \text{Toeplitz}\brak{\vec{h}}
+\end{align}
+
+\end{enumerate}
