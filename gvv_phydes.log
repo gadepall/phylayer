@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=pdflatex 2020.8.26)  29 AUG 2020 12:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=pdflatex 2020.8.26)  31 AUG 2020 07:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1654,23 +1654,7 @@ ngcntr.sty
 Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
-) (./gvv_phydes.aux
-
-LaTeX Warning: Label `eq:mmse_payload_chan_mod' multiply defined.
-
-
-LaTeX Warning: Label `table:ChannelParams' multiply defined.
-
-
-LaTeX Warning: Label `eq:mmse_chan_mod_dft' multiply defined.
-
-
-LaTeX Warning: Label `eq:mmse_chan_mod_reflect' multiply defined.
-
-
-LaTeX Warning: Label `eq:mmse_chan_mod_fft' multiply defined.
-
-)
+) (./gvv_phydes.aux)
 \openout1 = `gvv_phydes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 87.
@@ -1923,11 +1907,8 @@ on input line 124.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./chapters/MMSE/equalization.tex
-
-LaTeX Warning: Reference `fig:frame' on page 3 undefined on input line 7.
-
-[3 <./figs/8psk/ee18btech11012-eps-converted-to.pdf>])
+) (./chapters/MMSE/equalization.tex [3 <./figs/8psk/ee18btech11012-eps-converte
+d-to.pdf>])
 No file gvv_phydes.bbl.
 [4
 
@@ -1939,46 +1920,33 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 316.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 316.
 Package rerunfilecheck Info: File `gvv_phydes.out' has not changed.
 (rerunfilecheck)             Checksum: F5FCDED7252F45FEB371525B831B722E;416.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 316.
  ) 
 Here is how much of TeX's memory you used:
- 40196 strings out of 480608
- 926568 string characters out of 5892806
- 1347290 words of memory out of 5000000
- 55169 multiletter control sequences out of 15000+600000
+ 40193 strings out of 480608
+ 926529 string characters out of 5892806
+ 1347240 words of memory out of 5000000
+ 55168 multiletter control sequences out of 15000+600000
  601156 words of font info for 168 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  60i,25n,91p,502b,919s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{equation.10.6} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.9} has been referenced but does not e
-xist, replaced by a fixed one
-
-{/data/data/com.termux/files/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/
-8r.enc}</data/data/com.termux/files/usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/txfonts/rtxmi.pfb></data/data/com.termux/files/usr/share/texlive/texmf-dis
-t/fonts/type1/public/txfonts/rtxr.pfb></data/data/com.termux/files/usr/share/te
-xlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></data/data/com.termux/fi
-les/usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></data/dat
-a/com.termux/files/usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy
-.pfb></data/data/com.termux/files/usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/txfonts/txsya.pfb></data/data/com.termux/files/usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></data/data/com.termux/files/usr/share/texlive
-/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></data/data/com.termux/files/usr/
-share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></data/data/com.termu
-x/files/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gvv_phydes.pdf (4 pages, 99413 bytes).
+{/data/data/com.termux/files/usr/share/texlive/texmf-dist/fonts/enc/dvips/bas
+e/8r.enc}</data/data/com.termux/files/usr/share/texlive/texmf-dist/fonts/type1/
+public/txfonts/rtxmi.pfb></data/data/com.termux/files/usr/share/texlive/texmf-d
+ist/fonts/type1/public/txfonts/rtxr.pfb></data/data/com.termux/files/usr/share/
+texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></data/data/com.termux/
+files/usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></data/d
+ata/com.termux/files/usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tx
+sy.pfb></data/data/com.termux/files/usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/txfonts/txsya.pfb></data/data/com.termux/files/usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmb8a.pfb></data/data/com.termux/files/usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></data/data/com.termux/files/us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></data/data/com.ter
+mux/files/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on gvv_phydes.pdf (4 pages, 99049 bytes).
 PDF statistics:
  230 PDF objects out of 1000 (max. 8388607)
  162 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
+ 52 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
