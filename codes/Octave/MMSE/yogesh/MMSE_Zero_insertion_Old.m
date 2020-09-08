@@ -34,19 +34,13 @@ DataSym = randi([0 1],UsedPilotBitsLen,1);
 DataSym1=reshape(DataSym,3,[]);
 DataSym2=transpose(DataSym1);
 %integer pilot symbols per frame used for channel estimation (0,1..,7)
-%DataSym3=zeros(1,UsedPilotSymbsLen);
+DataSym3=zeros(1,UsedPilotSymbsLen);
 
-%for ii=1:(UsedPilotSymbsLen)
-    %DataSym3(ii)=bi2de(DataSym2(ii,:),'left-msb')+1;
-%end
+for ii=1:(UsedPilotSymbsLen)
+    DataSym3(ii)=bi2de(DataSym2(ii,:),'left-msb')+1;
+end
+pilot_sym = mapping(ConstellationSize,DataSym3');   % 8-PSK modulation
 
-s = PSKGen();
-gray = zeros(8,3);
-gray = graycode(); 
-A= DemodMatrix();
-
-pilot_sym = transpose(symb(DataSym2,length(DataSym2),s));   % 8-PSK modulation
-%pilot_sym2 = symb2(DataSym3,length(DataSym3),s);
 % 
 % % %nErr_seq = zeros(1,length(EsN0dB));
 SER_MMSE=zeros(1,length(EsN0dB));
@@ -75,12 +69,12 @@ for i=1:length(EsN0dB)
              DataSym = randi([0 1],(PayloadBitsLen /2),1);
              DataSym1=reshape(DataSym,3,[]);
              DataSym2=transpose(DataSym1);
-            % DataSym3=zeros((PayloadSymbsLen /2),1);
+             DataSym3=zeros((PayloadSymbsLen /2),1);
 
-             %for ii=1:(PayloadSymbsLen /2)
-                 %DataSym3(ii)=bi2de(DataSym2(ii,:),'left-msb')+1;
-             %end
-             m_psk = symb(DataSym2,length(DataSym2),s);
+             for ii=1:(PayloadSymbsLen /2)
+                 DataSym3(ii)=bi2de(DataSym2(ii,:),'left-msb')+1;
+             end
+             m_psk = mapping(ConstellationSize,DataSym3');
              m_psk1 = zero_padding(m_psk);
              Rk = conv(h,m_psk1);
              Rk1 = reshape(Rk,[244,1]);
@@ -96,10 +90,9 @@ for i=1:length(EsN0dB)
              for jj = 1:(PayloadSymbsLen /8)
                  y1 = y((jj-1)*8+1:(jj-1)*8+8);
                  x_hat = w*y1;
-                 x_hat3=decodecomp(x_hat,A,gray);
-                 %x_hat1=decodecomp2(x_hat,A);
-                 %x_hat2=(x_hat1-1);
-                 %x_hat3=de2bi(x_hat2,3,'left-msb');
+                 x_hat1=demapping(ConstellationSize,x_hat);
+                 x_hat2=(x_hat1-1);
+                 x_hat3=de2bi(x_hat2,3,'left-msb');
                  x_hat4=transpose(x_hat3);
                  x_hat5=reshape(x_hat4,[],1);
                  X_hat = [X_hat;x_hat5];
@@ -120,20 +113,4 @@ EbN0=10.^(EbN0dB/10);
  theory_bpsk = 1.0/2* erfc(sqrt(EbN0));
 
  save("-ascii","MMSE_py.dat","EbN0dB","SER_MMSE");
- 
- semilogy(EbN0dB,(SER_MMSE),'m-*');
-hold on;
-
-% semilogy(EbN0dB,theoreticalSER,'r-*');
-% hold on;
-% 
-% semilogy(EbN0dB,theory_bpsk,'b-*');
-% hold on;
-
-legend('MMSE','TheoryBER','TheoryBPSK','location','best');
-xlabel('$\frac{E_s}{N_0}$(dB)','Interpreter','latex');
-ylabel('$P_e$','Interpreter','latex');
-%saveas(gcf,'Equalizers','eps');
-grid on;
-
 
