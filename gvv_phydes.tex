@@ -137,6 +137,9 @@ columns=fullflexible
 \providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
 \newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
 %\numberwithin{equation}{section}
 \numberwithin{equation}{subsection}
 %\numberwithin{problem}{section}
@@ -301,6 +304,8 @@ The design and implementation of a simple narrow band communication system is pr
 \section{Channel}
 \subsection{Estimation}
 \input{./chapters/MMSE/estimation.tex}
+\subsection{SNR Estimation}
+\input{./chapters/MMSE/snr_estimation.tex}
 \subsection{Equalization}
 \input{./chapters/MMSE/equalization.tex}
 %

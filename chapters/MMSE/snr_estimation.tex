@@ -1,0 +1,86 @@
+MMSE require estimation of the SNR.  The signal power is estimated using $\vec{h}$ in the pilot duration.  The noise power is
+estimated in the rampup time in Fig. \ref{fig:ee18btech11041_frame}.
+
+\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
+
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\numberwithin{table}{enumi}
+
+\item Let $\vec{h}_p$
+%
+be the channel estimate using the $p$th pilot block.  Then, the average symbol SNR at the receiver is computed using
+\begin{align}
+\hat{E}_s = \frac{1}{2\floor*{\frac{P_f}{P}}}\sum_{p=1}^{\floor*{\frac{P_f}{P}}}\norm{\vec{h}_p}^2
+\end{align}
+%
+were $P_f$ is the total number of pilot symbols in a frame.
+\item The noise variance is computed as
+\begin{align}
+\hat{\sigma}^2 = \frac{1}{2K}\sum_{i=1}^{K}\abs{Y_k}^2
+\end{align}
+%
+where $K$ is the maximum number of symbols that could possibly be transmitted during rampup time.
+\item From the above, 
+\begin{align}
+SNR = \frac{\hat{E}_s}{\hat{\sigma}^2}
+\end{align}
+%$P=10$ pilot symbols are used at a time for channel estimation.  The channel filter has length $L=5$.  See Table \ref{table:ChannelParams} for  details.
+%The consequent model is
+%\begin{align}
+%\vec{y}_p = \vec{x}_p*\vec{h}+ \vec{n}_p
+%\label{eq:mmse_chan_mod}
+%\end{align}
+%\begin{table}[!h]
+%\centering
+%\input{./tables/MMSE/ChannelParams.tex}
+%\caption{}
+%\label{table:ChannelParams}
+%\end{table}
+%\item Let
+%\begin{align}
+%\vec{x}_p \fourier \vec{X}_p, 
+%\vec{y}_p \fourier \vec{Y}_p, 
+%\vec{h} \fourier \vec{H}_p, 
+%\end{align} 
+%be the DFTs of the signals.  Then, 
+%\begin{align}
+%\vec{H}_p = \frac{\vec{Y}_p}{\vec{X}_p}
+%\\
+%\text{and }\vec{H}_p \fourier \vec{h}
+%\label{eq:mmse_chan_mod_dft}
+%\end{align} 
+%This is how channel estimation is done $\because$ both $\vec{x}_p$
+%and $\vec{y}_p$ are known at the receiver.
+%\item While \eqref{eq:mmse_chan_mod_dft} cannot be applied directly, since the lengths of $\vec{x}_p (P)$  and $\vec{h}(L)$ are different, resulting in a circular convolution.  To address this, we do the following operations
+%\begin{multline}
+%\vec{y} = \myvec{\vec{I}_{P} & \vec{0}_{P\times L-1}}\lsbrak{
+%\brak{\vec{I}+\vec{R}}\myvec{\vec{1}_{L-1}^T   & \vec{0}_{P}^T }
+%}
+%\\
+%+\rsbrak{
+%\myvec{\vec{0}_{L-1}^T & \vec{1}_{P-L+1}^T  & \vec{0}_{L-1}^T}\vec{y}_p}
+%\end{multline} 
+%where
+%\begin{align}
+%\vec{R} = \myvec
+%{
+%0 & 0 & 0 & \dots & 1
+%\\
+%0 & 0 & \dots & 1 & 0
+%\\
+% & &\vdots & & 
+%\\
+%1 & 0 & \dots & 0 & 0
+%}
+%\label{eq:mmse_chan_mod_reflect}
+%\end{align} 
+%is a reflection matrix.
+%The channel is now estiamted as
+%\begin{align}
+%\vec{y} \fourier \vec{Y}
+%\\
+%\frac{\vec{Y}}{\vec{X}_p} \fourier \vec{h}
+%\label{eq:mmse_chan_mod_fft}
+%\end{align} 
+\end{enumerate}
