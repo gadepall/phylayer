@@ -1,0 +1,68 @@
+\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
+
+\numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\numberwithin{table}{enumi}
+
+\item See the parameters listed in Table \ref{table:freq}.
+\item 	Let
+\begin{align}
+r_k &= e^{j2\pi \Delta fT_s + \theta}	+ v_k, 
+1\leq k \leq N
+\label{eq:freq_rx}
+\end{align}
+%and 	$v_k$  the compex noise.
+
+%	\item In a multicarrier  system  there is a dissimilarity of the oscillators used at the transmitter and receiver which  causes a ofset in the carrier friquency.Due to this at the receiver end when the signal is demodulated, we get a very high bit rate error.
+%	
+\item %	To overcome this eror ML stimation is used and ML carrier frequency estimater 
+	\begin{align}
+	\Delta f &= \frac{1}{2\pi T_s}\frac{\sum_{k=1}^{M} Im\cbrak{R(k)}}{\sum_{k=1}^{M} kRe\cbrak{R(k)}}
+	\end{align}
+where
+	
+%	Where the  $\Delta$f is the frquency  offset$T_s$ is the sampeling interval.
+	
+%	\item 
+%R(k) denotes the estimated autocorrelation of the sequence $r_k$.
+	
+	\begin{align}
+	R(k) &= \frac{1}{N-K}{\sum_{i = k+1}^{M} r_ir_{i-k}^*}	
+	\end{align}
+\begin{align}
+    \sum_{k=1}^{M} Im{R(k)} = M arg{\sum_{k=1}^{M} {R(k)}}
+    \\
+    \sum_{k=1}^{M} kRe{R(k)} = M\frac{M+1}{2}
+	\end{align}
+%	\item Thus total no of the quation used are 5.
+\end{enumerate}
+
+%\item In a multicarrier  system  there is a dissimilarity of the oscillators used at the transmitter and receiver which  causes a ofset in the carrier friquency.Due to this at the receiver end when the signal is demodulated, we get a very high bit rate error.
+%	
+%	To overcome this eror ML stimation is used and ML carrier frequency estimater 
+%	\begin{align}
+%	\Delta f &= \frac{1}{2\pi T_s}\frac{\sum_{k=1}^{M} Im{R(k)}}{\sum_{k=1}^{M} kRe{R(k)}}
+%	\end{align}
+%	
+%	Where the  $\Delta$f is the frquency  offset$T_s$ is the sampeling interval.
+%	
+%	\item R(k) denotes the estimated autocorrelation of the sequence $r_k$.
+%	
+%	\begin{align}
+%	R(k) &= \frac{1}{N-K}{\sum_{i = k+1}^{M} r_ir_{i-k}^*}	
+%	\end{align}
+%	$r_k $is the sampled signal which can be represnted as $\to$
+%	\begin{align}
+%	r_k &= e^{j2\pi \Delta fT_s + \theta}	+ v_k
+%	\end{align}
+%	$1\leq k \leq N$
+%	\\
+%	$v_k$ is the compex noise.
+%	\\
+%   \begin{align}
+%    \sum_{k=1}^{M} Im{R(k)} = M arg{\sum_{k=1}^{M} {R(k)}}
+%    \\
+%    \sum_{k=1}^{M} kRe{R(k)} = M\frac{M+1}{2}
+%	\end{align}
+%	\item Thus total no of the quation used are 5.
+%\end{enumerate}

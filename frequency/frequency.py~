@@ -1,0 +1,40 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+x1 = np.loadtxt('frequency1.dat', dtype = 'double')
+x2 = np.loadtxt('frequency2.dat', dtype = 'double')
+
+A1= []
+estimate1 = []
+for i in range(0,18):
+	A1.append(x1[i])
+	
+	
+for i in range(0,18):
+	estimate1.append(x1[i+18])
+	
+A2= []
+estimate2 = []
+for i in range(0,18):
+	A2.append(x2[i])
+	
+	
+for i in range(0,18):
+	estimate2.append(x2[i+18])
+	
+	
+
+
+plt.grid(True, which = "both")
+plt.plot(A1,estimate1)
+plt.plot(A22,estimate2)
+plt.ylabel('$estimate$')
+plt.xlabel('$A$')
+
+
+plt.savefig('frequency.pdf')
+plt.savefig('frequency.eps')
+
+
+plt.show()

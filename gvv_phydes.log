@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=pdflatex 2020.8.26)  10 SEP 2020 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Termux) (preloaded format=pdflatex 2020.8.26)  14 OCT 2020 09:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1896,8 +1896,8 @@ o.pdf>
 -eps-converted-to.pdf ./figs/8psk/ee18btech11012.eps>
 (epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
-<./figs/8psk/ee18btech11012-eps-converted-to.pdf, id=95, 462.52798pt x 346.8960
-1pt>
+<./figs/8psk/ee18btech11012-eps-converted-to.pdf, id=103, 462.52798pt x 346.896
+01pt>
 File: ./figs/8psk/ee18btech11012-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figs/8psk/ee18btech11012-eps-converted-to.pdf>
 Package pdftex.def Info: ./figs/8psk/ee18btech11012-eps-converted-to.pdf  used 
@@ -1908,25 +1908,31 @@ on input line 124.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) (./chapters/MMSE/snr_estimation.tex [3 <./figs/8psk/ee18btech11012-eps-conver
-ted-to.pdf>]) (./chapters/MMSE/equalization.tex)
-No file gvv_phydes.bbl.
-[4
+ted-to.pdf>]) (./chapters/MMSE/equalization.tex) (./chapters/synctech/freq.tex
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 321.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 321.
+LaTeX Warning: Reference `table:freq' on page 4 undefined on input line 7.
+
+)
+No file gvv_phydes.bbl.
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 325.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 325.
  (./gvv_phydes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 321.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 321.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 325.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 325.
 Package rerunfilecheck Info: File `gvv_phydes.out' has not changed.
-(rerunfilecheck)             Checksum: CADB2F5EF1952B9A151EE79836590F29;479.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 321.
+(rerunfilecheck)             Checksum: 3F7118BFA74C42AC8ACB1B3BF024F6A4;599.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 325.
  ) 
 Here is how much of TeX's memory you used:
- 40223 strings out of 480608
- 927116 string characters out of 5892806
- 1347242 words of memory out of 5000000
- 55186 multiletter control sequences out of 15000+600000
+ 40242 strings out of 480608
+ 927384 string characters out of 5892806
+ 1347289 words of memory out of 5000000
+ 55191 multiletter control sequences out of 15000+600000
  602532 words of font info for 170 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  60i,25n,91p,502b,919s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1943,10 +1949,10 @@ t/fonts/type1/urw/times/utmb8a.pfb></data/data/com.termux/files/usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></data/data/com.termux/files/us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></data/data/com.ter
 mux/files/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gvv_phydes.pdf (4 pages, 102197 bytes).
+Output written on gvv_phydes.pdf (4 pages, 106345 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
- 59 named destinations out of 1000 (max. 500000)
- 186 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 260 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 202 words of extra memory for PDF output out of 10000 (max. 10000000)
 
